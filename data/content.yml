@@ -1,0 +1,120 @@
+########################## hero area ##########################
+hero:
+  title: "I'm Kristian Ringer"
+
+  # animated text loop
+  occupations:
+    - 'Web Developer'
+    - 'Solutions Architect'
+    - 'Consultant and Freelancer'
+
+  # hero background image
+  bg_image: 'images/background.jpg'
+  # optional mobile breakpoint background
+  mobile_bg_image: 'images/gus_small.jpg'
+
+########################### About ##################################
+about:
+  enable: true
+  image: 'images/profile.png'
+  title: 'THIS IS ME'
+  content: Hi, thank you for taking a look around my site. If you have any questions feel free to reach out on [LinkedIn, Github, or by email](#contact)!
+  button:
+    enable: false
+    label: 'DOWNLOAD MY RESUME'
+    link: #
+    icon: 'fa-download'
+
+###########################3 Experience ##############################
+experience:
+  enable: true
+  title: 'EXPERIENCE'
+  experience_list:
+    - name: Web Developer
+      company: Ovatu
+      duration: '2020-Current'
+      content: Backend engineer focused on RESTful APIs, PHP, Yii, Kubernetes/Helm. Implemented automated testing in CI/CD flow, composer for dependencies, authentication RBAC authorization, and integration with Facebook, Xero, Quickbooks.
+
+    - name: Consulting
+      company: Freelance
+      duration: '2018-Current'
+      content: Consulting for web solutions, Moodle LMS integrations, React apps, Wordpress sites, cloud based solutions (AWS, Google cloud).
+
+    - name: Tech Lead
+      company: Catalyst IT
+      duration: '2018-2020'
+      content: Manage and support the Moodle Learning Management System for high profile Australian universities. Built React dashboard for logging hours.
+
+############################### Skill #################################
+skill:
+  enable: true
+  title: 'SKILLS'
+  showpercent: true
+  skill_list:
+    - name: 'PHP'
+      percentage: '95%'
+
+    - name: 'Cloud Solutions'
+      percentage: '80%'
+
+    - name: 'Moodle'
+      percentage: '100%'
+
+    - name: 'React'
+      percentage: '75%'
+
+######################### funfacts #############################3
+funfacts:
+  enable: true
+  funfacts_list:
+    - name: 'CUPS PER DAY'
+      image: 'images/icons/coffee.png'
+      count: '2'
+
+    - name: 'PROJECTS COMPLETED'
+      image: 'images/icons/web-development.png'
+      count: '15'
+
+    - name: 'VIDEOS PUBLISHED'
+      image: 'images/icons/works.png'
+      count: '25'
+
+############################# portfolio ################################
+portfolio:
+  enable: true
+  title: 'MY WORK'
+  portfolio_list:
+    - name: Moodle tips
+      image: 'images/portfolio/Moodle tips logo.png'
+      url: https://prestige.tips/moodle-tips
+      description: Educational videos and Moodle LMS consulting. There are also many moodle projects completed as part of Moodle tips.
+
+    - name: Prestige tips
+      image: 'images/portfolio/Moodle tips logo.png'
+      url: https://prestige.tips/projects
+      description: Wide range of projects and consulting using different technologies and tech stacks.
+
+    - name: Logbook
+      image: 'images/portfolio/logbook.png'
+      url: https://logbook.github.io
+      description: A logbook for tracking work hours spent on clients.
+
+    - name: Calcupa
+      image: 'images/portfolio/calcupa.jpg'
+      url: https://learn.calcupa.org
+      description: AWS hosted moodle site using EC2 auto scaling, RDS. Custom theme and API integration with Calcupa system.
+
+    - name: Keepsake
+      image: 'images/portfolio/keepsake.png'
+      url: https://keepsake.github.io
+      description: A fun box for private notes, open up one note per day!
+
+    - name: Hope City School
+      image: 'images/portfolio/hopecityschool.png'
+      url: https://hopecityschool.org
+      description: A wordpress site for Hope City school including hosting in AWS Lightsail.
+
+    - name: Bring Me Hope
+      image: 'images/portfolio/bringmehope.png'
+      url: https://bringmehope.org
+      description: Wordpress management, config, theme changes, plugin updates and integration with instagram feed.
