@@ -1,0 +1,108 @@
+{{ define "header" }}
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="{{ "/css/layouts/single.css" | relURL }}"/>
+<link rel="stylesheet" href="{{ "/css/navigators/sidebar.css" | relURL }}">
+<!--================= custom style overrides =========================-->
+<link rel="stylesheet" href="{{ "/css/style.css" | relURL }}"/>
+
+{{ end }}
+
+{{ define "navbar" }}
+{{ partial "navigators/navbar-2.html" . }}
+{{ end }}
+
+{{ define "content" }}
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      <!--Hero Area-->
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url({{ partial "helpers/get-hero.html" . }});'>
+      </div>
+
+      <!--Content Start-->
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='{{ partial "helpers/get-author-image.html" . }}' alt="Author Image">
+          <h5 class="author-name">{{ partial "helpers/get-author-name.html" . }}</h5>
+          <p>{{ .Page.Date | time.Format ":date_full" }}</p>
+        </div>
+
+        <div class="title">
+          <h1>{{ .Page.Title }}</h1>
+        </div>
+        {{ if site.Params.enableTags }}
+        <div class="taxonomy-terms">
+          <ul style="padding-left: 0;">
+            {{ range .Params.tags }}
+            {{ $url:= printf "tags/%s/" . }}
+            <li class="rounded"><a href="{{ $url | urlize | relLangURL }}" class="btn, btn-sm">{{ . }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+        <div class="post-content" id="post-content">
+          {{ .Page.Content }}
+        </div>
+
+        <!---Next and Previous Navigator -->
+        <hr />
+        {{ partial "navigators/next-prev-navigator.html" . }}
+        <hr />
+
+        <!----- Add comment support  ----->
+        {{ if site.Params.features.comment.enable }}
+        {{ partial "comments.html" site.Params.features.comment }}
+        {{ end }}
+
+        <!-- Keep backward compatibility with old config.yaml -->
+        {{ if site.DisqusShortname }}
+        {{ partial "comments/disqus.html" (dict (slice "disqus" "shortName")  site.DisqusShortname) }}
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+  <!--scroll back to top-->
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  {{ if .IsTranslated }}
+  {{ partial "navigators/floating-lang-selector.html" . }}
+  {{ end }}
+</section>
+{{ end }}
+
+{{ define "toc" }}
+<section class="toc-section" id="toc-section">
+  {{ if and site.Params.enableTOC ( .Params.enableTOC | default true ) }}
+  <div class="toc-holder">
+    <h5 class="text-center pl-3">{{ i18n "toc_heading" }}</h5>
+    <hr>
+    <div class="toc">
+      {{ .TableOfContents }}
+    </div>
+  </div>
+  {{ end }}
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="{{ "/js/single.js" | relURL }}"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+<!-------------- Enable Math support for this page  ---------------->
+{{ if .Params.math }}
+{{ partial "math.html" . }}
+{{ end }}
+
+<!-------------- Enable mermaid support for this page  ---------------->
+{{ if .Params.mermaid }}
+{{ partial "mermaid.html" . }}
+{{ end }}
+
+{{ end }}

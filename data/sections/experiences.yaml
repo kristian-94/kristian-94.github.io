@@ -1,0 +1,50 @@
+# section information
+section:
+  name: Work Experience
+  id: experiences
+  enable: true
+  weight: 9
+  showOnNavbar: false
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your experiences
+experiences:
+- company:
+    name: Ovatu
+    url: "https://ovatu.com"
+    location: Sydney
+    overview: Ovatu provides fast and intuitive booking software as a service. Integrates with booking widgets, Facebook, Stripe, and more.
+  positions:
+  - designation: Web Developer
+    start: Jan 2021
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    # end: Dec 2020
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Design and develop APIs for various new features such as high performance bookings, permissions, and validation.
+    - Monitor backend performance, cron jobs and message queues.
+    - Refactor and streamline codebase, introducing modern programming principles.
+    achievements:
+    - Implemented new authentication flows using OAuth2 and JWTs. New authorization using roles with specific grants.
+    - Rest API changes for consistent input validation, rendering of errors and objects, styles implementation for each object.
+    - "Set up live demo environment infrastructure: kubernetes, concourse runner pipeline, RDS aurora v2 DB + data generation"
+    - Introduced automated testing with Github actions and Phpunit unit and integration tests. Wrote tests for every endpoint in the app.
+
+- company:
+    name: Catalyst IT
+    url: "https://catalyst-au.net"
+    location: Australia
+    overview: "Catalyst develops, designs and supports the Moodle open source solution for enterprise level and growing organisations including: course and content management systems, systems integration, cloud hosting and 24/7 IT managed services."
+  positions:
+  - designation: Junior Web Developer -> Team Tech Lead
+    start: May 2018
+    end: Dec 2020
+    responsibilities:
+    - Maintenance and changes for Moodle clients
+    - Work with PHP backend, API integrations, and the moodle framework.
+    - Lead team meeting with clients with current project status, as well as technical business analysis.
+    achievements:
+    - Successfully implemented multiple major Moodle upgrade projects involving hundreds of plugins and custom processes.
+    - Lead an implementation of Microsoft integration suite of plugins for authentication and custom sync into university student database.
+    - Proved myself and advanced to team lead role, improved onboarding documentation.
