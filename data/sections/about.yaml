@@ -1,0 +1,87 @@
+# section information
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: Software Engineer
+# your company information
+company:
+  name: Ovatu
+  url: "https://ovatu.com"
+
+# your resume. this file path should be relative to you "static" directory
+# Dreprecated. Use resourceLinks instead.
+# resume: "files/resume.pdf"
+
+# a summary about you
+summary: 'I am a passionate software engineer with 5 years of working experience. From managing infrastructure, to backend and frontend, I work on the full stack of web apps. I am interested in machine learning and the cutting edge of technology.'
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "kristian.ringer@gmail.com"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://www.github.com/kristian-94"
+
+- name: LinkedIn
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/kristian-ringer-9ab515104/"
+
+# You can put custom buttons to link your relevant resources.
+# For example, you can put link for your resume.
+resourceLinks:
+#- title: "My Resume"
+#  url: "files/resume.pdf"
+
+# Show your badges
+# You can show your verifiable certificates from https://www.credly.com.
+# You can also show a circular bar indicating the level of expertise on a certain skill
+badges:
+- type: certification
+  name: AWS Certified Solutions Architect - Associate
+  badge: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png"
+
+- type: certification
+  name: Docker & Kubernetes
+  url: "https://www.udemy.com/course/docker-kubernetes-the-practical-guide"
+  badge: "https://img-c.udemycdn.com/course/240x135/3490000_d298_2.jpg"
+
+- type: certification
+  name: Data Structures & Algorithms
+  url: "https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/"
+  badge: "https://img-b.udemycdn.com/course/240x135/1917546_682b_3.jpg"
+
+#- type: certification
+#  name: Artificial Intelligence and Machine Learning
+#  url: "https://www.credly.com/org/grupo-bancolombia/badge/artificial-intelligence-and-machine-learning"
+#  badge: "https://images.credly.com/size/680x680/images/e027514f-9d07-4b29-862f-fe21a8aaebf1/ae.png"
+
+#- type: soft-skill-indicator
+#  name: AWS Cloud Services
+#  percentage: 90
+#  color: blue
+
+- type: soft-skill-indicator
+  name: Docker and Kubernetes
+  percentage: 90
+  color: yellow
+
+- type: soft-skill-indicator
+  name: Machine Learning
+  percentage: 85
+  color: orange
+
+# you can also provide color code instead of the color name
+# - type: soft-skill-indicator
+#   name: Example 1
+#   percentage: 75
+#   color: "#00adb5"

@@ -1,0 +1,73 @@
+# section information
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Professional
+  filter: "professional"
+- name: Moodle
+  filter: "moodle"
+- name: Hobby
+  filter: "hobby"
+
+# your projects
+projects:
+- name: Moodle Tips
+  logo: /images/portfolio/Moodle tips logo.png
+  role: Creator
+  timeline: "May 2020 - Present"
+#  repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  url: "https://prestige.tips/moodle-tips"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: A Youtube channel, online course and discord community centered around Moodle development and training.
+  tags: ["professional", "PHP", "cloud", "moodle"]
+
+- name: Logbook
+  logo: /images/portfolio/logbook.png
+  role: Lead Developer
+  timeline: "Jan 2020 - June 2021"
+#  repo: https://github.com/kristian-94/logbook
+  url: "/projects/logbook/"
+  summary: A custom web app for tracking numbers of hours billed to clients.
+  tags: ["professional", "PHP", "cloud"]
+
+- name: Keepsake
+  logo: /images/portfolio/keepsake.png
+  role: Creator
+  timeline: "Feb 2020 - Dec 2022"
+  repo: https://github.com/kristian-94/keepsake
+  #url: ""
+  summary: An app to store memories and notes for someone special to open them once per day.
+  tags: ["hobby", "fun"]
+
+- name: Calcupa
+  logo: /images/sections/projects/toha.png
+  role: Consultant
+  timeline: "Jun 2019 - Present"
+  url: https://calcupa.org
+  summary: A new Moodle site involving theming, branding and custom integration to allow access to users and authentication from external system.
+  tags: ["moodle","professional"]
+
+- name: Bring Me Hope Foundation
+  logo: /images/sections/projects/toha.png
+  role: Consultant
+  timeline: "Jan 2021 - Present"
+  url: https://bringmehope.org
+  summary: "Maintenance and updates for the Bring Me Hope WordPress site: Payment integrations for donations, instagram feed integration, and theme and style changes"
+  tags: ["professional"]
+
+- name: Number prediction - machine learning
+  logo: /images/sections/projects/toha.png
+  role:
+  timeline: "Nov 2022 - Jan 2023"
+  url: https://calcupa.org
+  summary: "Draw a number and this algorithm will predict what number you drew. Try it!"
+  tags: ["hobby"]
