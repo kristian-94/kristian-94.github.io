@@ -38,6 +38,11 @@ skills:
   logo: /images/sections/skills/javascript.png
   summary: "Experienced with frameworks such as React and Vue, as well as jQuery and vanilla javascript to manipulate a web page."
 
+- name: Hugo
+  logo: /images/sections/skills/hugo.png
+  summary: "Proficient in using Hugo, a popular static site generator, to create and manage dynamic websites (like this one!)."
+  url: "https://gohugo.io/"
+
 - name: Linux
   logo: /images/sections/skills/linux.png
   summary: "Was using as my main operating system for ~3 years 2018-2021. Capable of writing bash/shell scripts, cron jobs, and customisation."
