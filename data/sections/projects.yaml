@@ -26,7 +26,7 @@ projects:
   role: Creator
   timeline: "May 2020 - Present"
 #  repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  url: "https://prestige.tips/moodle-tips"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  url: "/projects/moodletips"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: A Youtube channel, online course and discord community centered around Moodle development and training.
   tags: ["professional", "PHP", "cloud", "moodle"]
 
@@ -68,6 +68,6 @@ projects:
   logo: /images/sections/projects/toha.png
   role:
   timeline: "Nov 2022 - Jan 2023"
-  url: https://calcupa.org
+  url: "/projects/micrograd"
   summary: "Draw a number and this algorithm will predict what number you drew. Try it!"
   tags: ["hobby","Python"]

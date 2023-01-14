@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="/css/navigators/navbar.css"/>
 <link rel="stylesheet" href="/css/plyr.css"/>
 
-<link rel="stylesheet" href="/css/flag-icon.min.css"/>
-
 
 <link rel="stylesheet" href="/google-fonts/Mulish/mulish.css"/>
 
@@ -22,12 +20,25 @@
 
 
 
+<link rel="stylesheet" href="/css/colortheme/colortheme.css"/>
 
 
 
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/logo_no_bg_hu29c94b954602da118b51e4943b22ee93_110058_42x0_resize_box_3.png" />
 
 <meta property="og:title" content="Blogs" />
-<meta property="og:description" content="Personal Portfolio" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://kristian-94.github.io/blog/" />
 
@@ -42,6 +53,35 @@
 
 
 
+    
+
+    
+        
+        
+            
+            
+            
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4LBG7NDFZ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-H4LBG7NDFZ', { 'anonymize_ip': false });
+}
+</script>
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
     
 
 
@@ -66,26 +106,129 @@
 
 
 
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl top-navbar initial-navbar-white final-navbar">
   <div class="container">
-      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <a class="navbar-brand" href="/">
-      Kristian&#39;s Website</a>
-    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      
+      <img src="/images/site/logo_black_hu3f95809e71e16daad4ce71c3d0baa67f_1283240_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Kristian&#39;s Portfolio</a>
+    <button
+            class="navbar-toggler navbar-dark"
+            id="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#top-nav-items"
+            aria-label="menu"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
       <ul class="navbar-nav ml-auto">
-      
-      
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">About</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">Projects</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">Skills</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="nav-item dropdown">
+
+<div id="theme-initialization" style="display: none;"
+  default-theme="system"></div>
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" onclick="enableLightTheme()">
+    <img class="menu-icon-center" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" onclick="enableDarkTheme()">
+    <img class="menu-icon-center" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" onclick="useSystemTheme()">
+    <img class="menu-icon-center" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+        
       </ul>
     </div>
   </div>
   
   
+  <img src="/images/site/logo_white_hu499226ecff3a52db5ffa6bfbc5e1e8ae_94097_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+  <img src="/images/site/logo_black_hu3f95809e71e16daad4ce71c3d0baa67f_1283240_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
   
 </nav>
 
@@ -174,6 +317,10 @@ First it encrypts all communication that flies across the web. This prevents cur
 
 
 
+  
+      
+  
+
 
 
   
@@ -215,26 +362,74 @@ First it encrypts all communication that flies across the web. This prevents cur
         <div class="col-md-4 col-sm-12">
           <h5>Navigation</h5>
           
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://kristian-94.github.io#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://kristian-94.github.io#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://kristian-94.github.io#skills">Skills</a>
+                </li>
+              
+              
+              
+              
+              
+              
+              
+            
+              
+            
+          </ul>
+          
         </div>
         
         
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:kristian.ringer@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>kristian.ringer@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/kristian-94 target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>kristian-94</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/kristian-ringer-9ab515104 target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Kristian Ringer</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
         
         
-          
-          <div class="col-md-4 col-sm-12">
-            <p>Stay up to date with email notification</p>
-            
-              <form method='post' action='https://blogtrottr.com'>
-              <div class="form-group">
-              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
-              <input type='hidden' name='btr_url' value='https://kristian-94.github.ioindex.xml' />
-              <input type='hidden' name='schedule_type' value='1' />
-              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
-              <button type="submit" class="btn btn-info"> Submit </button>
-              </div>
-              </form>
-            
-          </div>
         
       </div>
     </div>
@@ -244,20 +439,9 @@ First it encrypts all communication that flies across the web. This prevents cur
     <div class="container">
       <div class="row text-left">
         <div class="col-md-4">
-          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
-            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
-            Toha
-          </a>
         </div>
-        <div class="col-md-4 text-center">© 2022 Copyright.</div>
+        <div class="col-md-4 text-center">© Copyright 2023</div>
         <div class="col-md-4 text-right">
-          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
-          <img
-            src="/images/hugo-logo.svg"
-            alt="Hugo Logo"
-            height="18"
-          />
-          </a>
         </div>
       </div>
     </div>
@@ -272,6 +456,11 @@ First it encrypts all communication that flies across the web. This prevents cur
 <script type="text/javascript" src="/js/navbar.js"></script>
 <script type="text/javascript" src="/js/plyr.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+
+
+
+<script type="text/javascript" src="/js/darkreader.js"></script>
+<script type="text/javascript" src="/js/darkmode-darkreader.js"></script>
 
 
 

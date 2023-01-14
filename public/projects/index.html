@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="/css/navigators/navbar.css"/>
 <link rel="stylesheet" href="/css/plyr.css"/>
 
-<link rel="stylesheet" href="/css/flag-icon.min.css"/>
-
 
 <link rel="stylesheet" href="/google-fonts/Mulish/mulish.css"/>
 
@@ -22,12 +20,25 @@
 
 
 
+<link rel="stylesheet" href="/css/colortheme/colortheme.css"/>
 
 
 
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/logo_no_bg_hu29c94b954602da118b51e4943b22ee93_110058_42x0_resize_box_3.png" />
 
 <meta property="og:title" content="Projects" />
-<meta property="og:description" content="Personal Portfolio" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://kristian-94.github.io/projects/" />
 
@@ -35,13 +46,43 @@
 
     
     
-    <link rel="stylesheet" href="/css/layouts/list.css">
-    <link rel="stylesheet" href="/css/navigators/sidebar.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+  />
+  <link rel="stylesheet" href="/css/layouts/notes.css">
+  <link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+
     
-    <link rel="stylesheet" href="/css/style.css"/>
 
+    
+        
+        
+            
+            
+            
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4LBG7NDFZ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-H4LBG7NDFZ', { 'anonymize_ip': false });
+}
+</script>
 
+        
 
+        
+        
+
+        
+        
+
+        
+        
     
 
 
@@ -66,26 +107,129 @@
 
 
 
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl top-navbar initial-navbar-white final-navbar">
   <div class="container">
-      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <a class="navbar-brand" href="/">
-      Kristian&#39;s Website</a>
-    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      
+      <img src="/images/site/logo_black_hu3f95809e71e16daad4ce71c3d0baa67f_1283240_42x0_resize_box_3.png" id="logo" alt="Logo">
+      Kristian&#39;s Portfolio</a>
+    <button
+            class="navbar-toggler navbar-dark"
+            id="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#top-nav-items"
+            aria-label="menu"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
       <ul class="navbar-nav ml-auto">
-      
-      
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">About</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">Projects</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/#skills">Skills</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="nav-item dropdown">
+
+<div id="theme-initialization" style="display: none;"
+  default-theme="system"></div>
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" onclick="enableLightTheme()">
+    <img class="menu-icon-center" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" onclick="enableDarkTheme()">
+    <img class="menu-icon-center" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" onclick="useSystemTheme()">
+    <img class="menu-icon-center" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+        
       </ul>
     </div>
   </div>
   
   
+  <img src="/images/site/logo_white_hu499226ecff3a52db5ffa6bfbc5e1e8ae_94097_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+  <img src="/images/site/logo_black_hu3f95809e71e16daad4ce71c3d0baa67f_1283240_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
   
 </nav>
 
@@ -107,6 +251,115 @@
             <li id="list-heading"><a href="/projects" data-filter="all"></a></li>
             <div class="subtree">
                 
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/notes/go/">Go</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/notes/go/basic/">বেসিক</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/notes/go/basic/introduction/" title="পরিচিতি">পরিচিতি</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/notes/go/basic/types/" title="বেসিক টাইপ সমূহ">বেসিক টাইপ সমূহ</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/notes/go/basic/flow-control/" title="Flow Control">Flow Control</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/notes/go/advanced/">অ্যাডভান্সড</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/notes/go/advanced/files/" title="ফাইল ম্যানিপুলেশন">ফাইল ম্যানিপুলেশন</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/notes/bash/">ব্যাশ</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/notes/bash/basic/" title="ভেরিয়েবল">ভেরিয়েবল</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
 
             </div>
           </ul>
@@ -120,157 +373,140 @@
       
 <section class="content-section" id="content-section">
   <div class="content container-fluid" id="content">
-    <div class="container-fluid post-card-holder" id="post-card-holder">
-      
+    <div class="container-fluid note-card-holder" id="note-card-holder">
       
       
         
-          <div class="post-card">
-  <a href="/projects/contributions/deploy-triggers/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Atlassian Deployment Triggers</h5>
-        <p class="card-text post-summary">Addressed pretty significant page load performance issue founde in larger deployments. Eliminates uses of intensive backend query, replacing it with an asynchronous API call against a lucene index. This change reduces page load from from 2+ minutes to nearly instant, with an incredibly responsive UI.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">January 1, 0001</span>
-        <a
-        href="/projects/contributions/deploy-triggers/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
+          <p>A Youtube channel, online course and community centered around Moodle development and training.</p>
+<h2 id="the-problem">The problem</h2>
+<p>When I started trying to learn Moodle, the code and ecosystem around it was very hard to understand. The documentation is also not clear unless you already know Moodle!</p>
+<p>I am passionate about teaching and sharing knowledge. This project is my small contribution to make a mark on the Moodle world and help new developers get up to scratch.</p>
+<ul>
+<li>Having a large community of developers contributing is good for the whole Moodle ecosystem.</li>
+<li>Making this first step for new developers to get up and running is the most important for community growth.</li>
+<li>We want more developers creating more awesome Moodle plugins and modules.</li>
+</ul>
+<h2 id="the-project">The project</h2>
+<p>A Youtube channel, a Udemy course and a Skillshare course were created to help people. Videos have been recorded over a number of years and continue to be added to the collection. There is a focus on clear communication and building a strong foundation for new Moodle developers.</p>
+<h4 id="moodle-tips-online-course">Moodle tips online course</h4>
+<p>Check out a Youtube video, first in a series of building a plugin:</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/u54B7eFuG6w" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
+
+<h4 id="moodle-tips-website">Moodle tips website</h4>
+<p>Check out the main site <a href="https://prestige.tips/moodle-tips">https://prestige.tips/moodle-tips</a> (I couldn&rsquo;t use moodle.tips because of <a href="https://moodle.com/trademarks">trademarks</a>)</p>
+<p><a href="https://prestige.tips/moodle-tips"><img src="/projects/images/moodle_tips_screenshot.png" alt="Foo"></a></p>
+<h2 id="results">Results</h2>
+<p>The channel has helped many people, some comments are copied below. Thanks to all for watching and learning!</p>
+<p><img src="/projects/images/moodletips_comments/comment1.png" alt="comment1">
+<img src="/projects/images/moodletips_comments/comment2.png" alt="comment2">
+<img src="/projects/images/moodletips_comments/comment3.png" alt="comment3">
+<img src="/projects/images/moodletips_comments/comment4.png" alt="comment4">
+<img src="/projects/images/moodletips_comments/comment5.png" alt="comment5">
+<img src="/projects/images/moodletips_comments/comment6.png" alt="comment6">
+<img src="/projects/images/moodletips_comments/comment7.png" alt="comment7">
+<img src="/projects/images/moodletips_comments/comment8.png" alt="comment8"></p>
 
         
       
         
-          <div class="post-card">
-  <a href="/projects/contributions/shields-docker/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Added Docker Build Status Badge to shields.io</h5>
-        <p class="card-text post-summary">Shields.io is a massive library of badges that can be inserted into project README&rsquo;s or websites displaying various statuses (code coverage, health, version, etc). Support for docker was missing the current build health, and was a pretty trivial addition.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">January 7, 2020</span>
-        <a
-        href="/projects/contributions/shields-docker/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
+          <p>Track billed hours to separate buckets</p>
+<h2 id="the-problem">The problem</h2>
+<p>Keeping track of the ‘real’ hours worked vs the adjusted ‘billed’ hours can be tricky. They are different, and we need a system to keep track of billed hours. This is for companies that have clients that buy ‘Buckets’ of hours and then slowly use those hours for support and development. Support staff need to be able to answer the question:</p>
+<ul>
+<li>How many hours does this client have left?</li>
+<li>Can we accept new work or do we need to buy more hours first?</li>
+</ul>
+<h2 id="the-project">The project</h2>
+<p>The project is a simple interface to store hours against buckets and invoices. There are different authorization levels for read only users vs admins who can input hours content.</p>
+<p>The demo site is hosted on github pages for the react front end using <a href="https://github.com/gitname/react-gh-pages">react-gh-pages</a> and google cloud run for the backend with a sqlite database for this demo.</p>
+<p>I initially created the backend using Google&rsquo;s Firebase as a NoSQL data store. This was migrated over to Yii 2 (PHP framework) + PostgresQL to host on AWS servers for production.</p>
+<p>The frontend uses React.js javascript framework.</p>
+<h2 id="results">Results</h2>
+<p>This app is currently successfully being used in an internal production billing system to handle vital billing data.</p>
+<h3 id="demo">Demo</h3>
+<p><a href="https://kristian-94.github.io/logbook">View a demo of the project</a>
+<a href="https://kristian-94.github.io/logbook"><img src="/projects/images/logbook_screenshot.png" alt="Foo"></a></p>
+<h3 id="source-code">Source Code</h3>
+<p><a href="https://github.com/kristian-94/logbook">View project source code</a></p>
+
+
+<div class="text-center">
+<div class="github-card" data-github="kristian-94/logbook" data-width="400" data-height="" data-theme="default"></div>
+<script src="https://cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 </div>
+
 
         
       
         
-          <div class="post-card">
-  <a href="/projects/contributions/schema-org/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Schema.org Structured Data documentation fixes</h5>
-        <p class="card-text post-summary">While adding Structured Data to a client&rsquo;s website I found some example JSON that was invalid. Simple contribution to cleanup the user documentation providing syntactically valid JSON documents.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">January 7, 2020</span>
-        <a
-        href="/projects/contributions/schema-org/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
+          <p>These are my notes taken during implementing the micrograd library and training a neural net to recognise images.</p>
+<h2 id="what-is-micrograd">What is micrograd?</h2>
+<p>This is all based off <a href="https://en.wikipedia.org/wiki/Andrej_Karpathy">Andrej Karpathy</a>&rsquo;s Github repo and Youtube videos.
+I am a huge fan of him!</p>
+<p>Micrograd is all you need to train neural networks. Everything else (pytorch/tensor flow) is just efficiency.</p>
+
+
+<div class="text-center">
+<div class="github-card" data-github="karpathy/micrograd" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+<br>
 </div>
 
-        
-      
-        
-          <div class="post-card">
-  <a href="/projects/creations/bosh-agents/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">BOSH release for Bamboo &amp; Remote Agents</h5>
-        <p class="card-text post-summary">BOSH (Bosh Outer SHell) &ldquo;&hellip; is an open source tool for release engineering, deployment, lifecycle management, and monitoring of distributed systems.&rdquo; And it&rsquo;s amazingly powerful. This examples uses BOSH to provision an Alassian vendor app running on JDK along with the support Postgres database and agents to support it. The releases manages the health of services and will automatically provision, start/stop processes across the various services.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">February 11, 2018</span>
-        <a
-        href="/projects/creations/bosh-agents/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/VMj-3S1tku0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-        
-      
-        
-          <div class="post-card">
-  <a href="/projects/creations/marketplace/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Atlassian Marketplace Plugins</h5>
-        <p class="card-text post-summary">Multiple plugins used by thousands of teams that provide enhanced functionality of Atlassian’s core products (primarily JIRA and Bamboo) to enrich CI/CD capabilities, DevOps automation, or productivity. Functionality spans user interface, web services and persistence.</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">January 1, 0001</span>
-        <a
-        href="/projects/creations/marketplace/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
-
-        
-      
-        
-          <div class="post-card">
-  <a href="/projects/creations/docker-marketplace/" class="post-card-link">
-    <div class="card">
-      <div class="card-head">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Docker image for Bitbucket CI/CD Pipelines  &#34;shipit&#34;</h5>
-        <p class="card-text post-summary">Provides required dependencies and additional utilities to simplify and codify the process of building, testing and delivering Atlassian plugins all the way to the live marketplace. Executes integration/AUT level tests against all stated compatible versions for the productUploads generated artifact to Atlassian marketplaceProvides corresponding metadata indicating version, release notes, and compatibility</p>
-      </div>
-      <div class="card-footer">
-        <span class="float-left">January 1, 0001</span>
-        <a
-        href="/projects/creations/docker-marketplace/"
-        class="float-right btn btn-outline-info btn-sm"
-        >Read</a
-        >
-      </div>
-    </div>
-  </a>
-</div>
+<h1 id="my-notes">My notes</h1>
+<p>We need to get the gradient of the loss function and step towards minimal value. Change weights of inputs in a way that
+will take us there.</p>
+<p>Two files:
+<code>nn.py</code> neural net library importing and using micrograd engine.
+<code>engine.py</code> 100 lines of python code, no imports.</p>
+<h3 id="nnpy">nn.py</h3>
+<p><code>neuron</code> : one link in the chain of weights, ends up getting a value and connected to other neurons. The weight between
+is the strength of that connection.
+<code>layer</code> layer of neurons. They are all connected to the input but not eachother, a set of neurons evaluated
+independently.
+<code>MLP</code> multi layer perceptron: sequence of layers of neurons.</p>
+<p>We are computing the derivative of the loss function with respect to the weights of the neural network.</p>
+<h5 id="how-do-weights-affect-the-loss-function">How do weights affect the loss function?</h5>
+<p>Use gradient information. Weights are leaf nodes, they are an input. The other leaf nodes are the data but that is
+fixed.</p>
+<h3 id="gradient-calculation">Gradient calculation</h3>
+<p>In calculus, we can use the product rule to explicitly generate an equation to get the exact derivative.
+However, we can&rsquo;t do that for these huge functions with 10k parameters and we don&rsquo;t need to.</p>
+<h4 id="what-is-a-gradient">What is a gradient?</h4>
+<p>A gradient is the slope of a graph at a point. We get this as a limit when increasing x by a small amount. Practically,
+this means we just
+need to insert a slightly larger number and rerun our function. Then we see how much it changed, positive or negative,
+that&rsquo;s the gradient.</p>
+<p>We normalise by dividing by the height, rise/run. <code>(L2 - L1)/h </code>
+We can get the gradient of the final L loss with respect to any of the input elements, by only changing it, and then
+seeing how much L changed. This is the way to verify the calculated overall gradient that is found by traversing each
+node individually and applying the chain rule from the surrounding nodes.</p>
+<p>If we know how much d affects L, and how much e affects d, we can then use the chain rule of derivatives to calculate
+the overall derivative of e on L.</p>
+<p>A <code>+</code> in the chart just pulls through the next node&rsquo;s gradient. A plus has a gradient of 1.0 with respect to the next
+node, so it can just copy the next gradient to the children nodes. It&rsquo;s basically equivalent of a simple equation
+eg. <code>y = x + c</code> -&gt; gradient is 1.</p>
+<h4 id="back-propagation">Back propagation</h4>
+<p>This is a recursive application of the chain rule back through the computational graph.</p>
+<h3 id="leaf-nodes">Leaf Nodes</h3>
+<p>Some inputs are static data. The others are weights. Some others can be bias.</p>
+<p>For each neuron:</p>
+<ul>
+<li>Take all the inputs and sum all the weights and values. (can have any number of inputs)</li>
+<li>Add the bias.</li>
+<li>Take it through an activation function (tanh/sigmoid). This squashes the input into a value between 0 - 1 which is the
+final output and value of this neuron.</li>
+</ul>
+<p>We want the local derivative of the neuron&rsquo;s inputs on the final output. This whole thing is one little neuron in the
+neural net. In the end we&rsquo;ll back propagate through the entire set of neurons for the overall loss function. We really
+want the neurons output derived from the weights which is the thing we can change.</p>
 
         
       
@@ -297,6 +533,10 @@
 
 
 
+
+  
+      
+  
 
 
 
@@ -339,26 +579,74 @@
         <div class="col-md-4 col-sm-12">
           <h5>Navigation</h5>
           
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://kristian-94.github.io#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://kristian-94.github.io#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://kristian-94.github.io#skills">Skills</a>
+                </li>
+              
+              
+              
+              
+              
+              
+              
+            
+              
+            
+          </ul>
+          
         </div>
         
         
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:kristian.ringer@gmail.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>kristian.ringer@gmail.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/kristian-94 target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>kristian-94</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/kristian-ringer-9ab515104 target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>Kristian Ringer</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
         
         
-          
-          <div class="col-md-4 col-sm-12">
-            <p>Stay up to date with email notification</p>
-            
-              <form method='post' action='https://blogtrottr.com'>
-              <div class="form-group">
-              <input type='email' class="form-control" name='btr_email' placeholder="Enter email"/><br />
-              <input type='hidden' name='btr_url' value='https://kristian-94.github.ioindex.xml' />
-              <input type='hidden' name='schedule_type' value='1' />
-              <small id="emailHelp" class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
-              <button type="submit" class="btn btn-info"> Submit </button>
-              </div>
-              </form>
-            
-          </div>
         
       </div>
     </div>
@@ -368,20 +656,9 @@
     <div class="container">
       <div class="row text-left">
         <div class="col-md-4">
-          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
-            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
-            Toha
-          </a>
         </div>
-        <div class="col-md-4 text-center">© 2022 Copyright.</div>
+        <div class="col-md-4 text-center">© Copyright 2023</div>
         <div class="col-md-4 text-right">
-          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
-          <img
-            src="/images/hugo-logo.svg"
-            alt="Hugo Logo"
-            height="18"
-          />
-          </a>
         </div>
       </div>
     </div>
@@ -399,9 +676,20 @@
 
 
 
+<script type="text/javascript" src="/js/darkreader.js"></script>
+<script type="text/javascript" src="/js/darkmode-darkreader.js"></script>
+
+
+
     
     
-    <script src="/js/list.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script src="/js/imagesloaded.pkgd.min.js"></script>
+  <script src="/js/note.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
 
 
     

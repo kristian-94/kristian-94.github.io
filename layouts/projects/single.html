@@ -20,7 +20,7 @@
   <div class="content">
     <div class="container p-0 read-area">
       <!--Hero Area-->
-      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url({{ partial "helpers/get-hero.html" . }});'>
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url({{ partial "helpers/get-hero.html" . }}); object-fit: scale-down'>
       </div>
 
       <!--Content Start-->
@@ -47,11 +47,6 @@
           {{ .Page.Content }}
         </div>
 
-        <!---Next and Previous Navigator -->
-        <hr />
-        {{ partial "navigators/next-prev-navigator.html" . }}
-        <hr />
-
         <!----- Add comment support  ----->
         {{ if site.Params.features.comment.enable }}
         {{ partial "comments.html" site.Params.features.comment }}
@@ -69,20 +64,6 @@
   <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
   {{ if .IsTranslated }}
   {{ partial "navigators/floating-lang-selector.html" . }}
-  {{ end }}
-</section>
-{{ end }}
-
-{{ define "toc" }}
-<section class="toc-section" id="toc-section">
-  {{ if and site.Params.enableTOC ( .Params.enableTOC | default true ) }}
-  <div class="toc-holder">
-    <h5 class="text-center pl-3">{{ i18n "toc_heading" }}</h5>
-    <hr>
-    <div class="toc">
-      {{ .TableOfContents }}
-    </div>
-  </div>
   {{ end }}
 </section>
 {{ end }}

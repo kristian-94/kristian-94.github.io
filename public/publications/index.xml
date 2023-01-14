@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Publications on Kristian&#39;s Website</title>
+    <title>Publications on Kristian&#39;s Portfolio</title>
     <link>https://kristian-94.github.io/publications/</link>
-    <description>Recent content in Publications on Kristian&#39;s Website</description>
+    <description>Recent content in Publications on Kristian&#39;s Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
     <lastBuildDate>Tue, 07 Jan 2020 16:47:30 +0000</lastBuildDate><atom:link href="https://kristian-94.github.io/publications/index.xml" rel="self" type="application/rss+xml" /><item>
       <title>Organically DevOps: Building Quality and Security into the Software Supply Chain at Liberty Mutual</title>
       <link>https://kristian-94.github.io/publications/alldaydevops/</link>
