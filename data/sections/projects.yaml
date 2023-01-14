@@ -42,7 +42,7 @@ projects:
 - name: Keepsake
   logo: /images/portfolio/keepsake.png
   role: Creator
-  timeline: "Feb 2020 - Dec 2022"
+  timeline: "Feb 2020 - Dec 2020"
   repo: https://github.com/kristian-94/keepsake
   #url: ""
   summary: An app to store memories and notes for someone special to open them once per day.
@@ -51,7 +51,7 @@ projects:
 - name: Calcupa
   logo: /images/sections/projects/toha.png
   role: Consultant
-  timeline: "Jun 2019 - Present"
+  timeline: "Aug 2022 - Present"
   url: https://calcupa.org
   summary: A new Moodle site involving theming, branding and custom integration to allow access to users and authentication from external system.
   tags: ["moodle","professional"]
@@ -59,7 +59,7 @@ projects:
 - name: Bring Me Hope Foundation
   logo: /images/sections/projects/toha.png
   role: Consultant
-  timeline: "Jan 2021 - Present"
+  timeline: "Jan 2021 - Dec 2021"
   url: https://bringmehope.org
   summary: "Maintenance and updates for the Bring Me Hope WordPress site: Payment integrations for donations, instagram feed integration, and theme and style changes"
   tags: ["professional","wordpress"]
