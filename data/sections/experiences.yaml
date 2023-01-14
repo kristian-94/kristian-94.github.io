@@ -22,7 +22,7 @@ experiences:
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Design and develop APIs for various new features such as high performance bookings, permissions, and validation.
+    - Design and develop APIs for various new features such as bookings, file handling, and permissions, with performant and tested, reliable code.
     - Monitor backend performance, cron jobs and message queues.
     - Refactor and streamline codebase, introducing modern programming principles.
     achievements:
@@ -45,6 +45,6 @@ experiences:
     - Work with PHP backend, API integrations, and the moodle framework.
     - Lead team meeting with clients with current project status, as well as technical business analysis.
     achievements:
-    - Successfully implemented multiple major Moodle upgrade projects involving hundreds of plugins and custom processes.
+    - Successfully implemented multiple major Moodle upgrade projects involving managing custom plugins and themes.
     - Lead an implementation of Microsoft integration suite of plugins for authentication and custom sync into university student database.
-    - Proved myself and advanced to team lead role, improved onboarding documentation.
+    - Trusted with onboarding and improved documentation while streamlining processes.

@@ -1,6 +1,7 @@
 languageCode: en-us
 title: "Kristian's Portfolio"
 theme: "toha"
+baseURL: "https://kristian-94.github.io"
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
@@ -39,9 +40,9 @@ params:
   background: images/beach.jpeg
 
   logo:
-    main: images/site/main-logo.png
-    inverted: images/site/inverted-logo.png
-    favicon: images/site/favicon.png
+    main: images/site/logo_white.png
+    inverted: images/site/logo_black.png
+    favicon: images/site/logo_no_bg.png
 
   # specify whether you want to write some blog posts or not
   enableBlogPost: false

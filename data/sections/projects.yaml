@@ -37,7 +37,7 @@ projects:
 #  repo: https://github.com/kristian-94/logbook
   url: "/projects/logbook/"
   summary: A custom web app for tracking numbers of hours billed to clients.
-  tags: ["professional", "PHP", "cloud"]
+  tags: ["professional", "PHP", "cloud", "react"]
 
 - name: Keepsake
   logo: /images/portfolio/keepsake.png
@@ -46,7 +46,7 @@ projects:
   repo: https://github.com/kristian-94/keepsake
   #url: ""
   summary: An app to store memories and notes for someone special to open them once per day.
-  tags: ["hobby", "fun"]
+  tags: ["hobby", "react"]
 
 - name: Calcupa
   logo: /images/sections/projects/toha.png
@@ -62,7 +62,7 @@ projects:
   timeline: "Jan 2021 - Present"
   url: https://bringmehope.org
   summary: "Maintenance and updates for the Bring Me Hope WordPress site: Payment integrations for donations, instagram feed integration, and theme and style changes"
-  tags: ["professional"]
+  tags: ["professional","wordpress"]
 
 - name: Number prediction - machine learning
   logo: /images/sections/projects/toha.png
@@ -70,4 +70,4 @@ projects:
   timeline: "Nov 2022 - Jan 2023"
   url: https://calcupa.org
   summary: "Draw a number and this algorithm will predict what number you drew. Try it!"
-  tags: ["hobby"]
+  tags: ["hobby","Python"]

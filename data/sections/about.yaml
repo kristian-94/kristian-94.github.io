@@ -50,15 +50,15 @@ badges:
   name: AWS Certified Solutions Architect - Associate
   badge: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png"
 
-- type: certification
-  name: Docker & Kubernetes
-  url: "https://www.udemy.com/course/docker-kubernetes-the-practical-guide"
-  badge: "https://img-c.udemycdn.com/course/240x135/3490000_d298_2.jpg"
-
-- type: certification
-  name: Data Structures & Algorithms
-  url: "https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/"
-  badge: "https://img-b.udemycdn.com/course/240x135/1917546_682b_3.jpg"
+#- type: certification
+#  name: Docker & Kubernetes
+#  url: "https://www.udemy.com/course/docker-kubernetes-the-practical-guide"
+#  badge: "https://img-c.udemycdn.com/course/240x135/3490000_d298_2.jpg"
+#
+#- type: certification
+#  name: Data Structures & Algorithms
+#  url: "https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/"
+#  badge: "https://img-b.udemycdn.com/course/240x135/1917546_682b_3.jpg"
 
 #- type: certification
 #  name: Artificial Intelligence and Machine Learning
@@ -69,16 +69,16 @@ badges:
 #  name: AWS Cloud Services
 #  percentage: 90
 #  color: blue
-
-- type: soft-skill-indicator
-  name: Docker and Kubernetes
-  percentage: 90
-  color: yellow
-
-- type: soft-skill-indicator
-  name: Machine Learning
-  percentage: 85
-  color: orange
+#
+#- type: soft-skill-indicator
+#  name: Docker and Kubernetes
+#  percentage: 90
+#  color: yellow
+#
+#- type: soft-skill-indicator
+#  name: Machine Learning
+#  percentage: 85
+#  color: orange
 
 # you can also provide color code instead of the color name
 # - type: soft-skill-indicator

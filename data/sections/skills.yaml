@@ -16,10 +16,14 @@ skills:
   summary: "Capable of deploying and managing applications on Kubernetes. Experienced in writing Kubernetes helm charts and deployment processes."
   url: "https://kubernetes.io"
 
-- name: PHP Development
+- name: PHP
   logo: /images/sections/skills/php.png
   summary: "Using as my main language for professional development. Capable of writing scalable, testable, and maintainable programs. Laravel, Yii, Moodle frameworks."
   url: "https://www.php.net"
+
+- name: Python
+  logo: /images/sections/skills/python.png
+  summary: "Know basic Python programming. Used for scripting, problem solving, code challenges, and prototype APIs with Flask."
 
 - name: Cloud Computing
   logo: /images/sections/skills/cloud.png
@@ -42,7 +46,3 @@ skills:
   logo: /images/sections/skills/git.png
   summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
   url: "https://git-scm.com/"
-
-- name: Python
-  logo: /images/sections/skills/python.png
-  summary: "Know basic Python programming. Used for scripting, problem solving, code challenges, and prototype APIs with Flask."

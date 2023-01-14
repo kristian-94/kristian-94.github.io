@@ -16,7 +16,7 @@
 {{ end }}
 
 {{ define "content" }}
-<section class="content-section" id="content-section">
+<section class="d-block content-section ml-auto mr-auto text-center" id="content-section">
   <div class="content">
     <div class="container p-0 read-area">
       <!--Hero Area-->
@@ -25,10 +25,9 @@
 
       <!--Content Start-->
       <div class="page-content">
-        <div class="author-profile ml-auto align-self-lg-center">
+        <div class="author-profile ml-auto mr-auto align-self-lg-center">
           <img class="rounded-circle" src='{{ partial "helpers/get-author-image.html" . }}' alt="Author Image">
           <h5 class="author-name">{{ partial "helpers/get-author-name.html" . }}</h5>
-          <p>{{ .Page.Date | time.Format ":date_full" }}</p>
         </div>
 
         <div class="title">
@@ -44,7 +43,7 @@
           </ul>
         </div>
         {{ end }}
-        <div class="post-content" id="post-content">
+        <div class="post-content text-left" id="post-content">
           {{ .Page.Content }}
         </div>
 
