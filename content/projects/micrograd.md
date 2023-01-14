@@ -6,6 +6,8 @@ hero: micrograd_hero.svg
 
 These are my notes taken during implementing the micrograd library and training a neural net to recognise images.
 
+Check back soon for a link to a working demo and code :)
+
 ## What is micrograd?
 
 This is all based off [Andrej Karpathy](https://en.wikipedia.org/wiki/Andrej_Karpathy)'s Github repo and Youtube videos.
