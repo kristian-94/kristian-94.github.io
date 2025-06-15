@@ -1,5 +1,5 @@
 languageCode: en-us
-title: "Kristian's Portfolio"
+title: "Kristian's Projects"
 theme: "toha"
 baseURL: "https://kristian-94.github.io"
 
@@ -16,6 +16,12 @@ markup:
     startLevel: 2
     endLevel: 6
     ordered: false
+  goldmark:
+    renderer:
+      unsafe: true
+    highlight:
+      lineNos: false
+      style: github
 
 # At least HTML and JSON are required for the main HTML content and
 # client-side JavaScript search
