@@ -71,3 +71,12 @@ projects:
   url: "/projects/micrograd"
   summary: "Draw a number and this algorithm will predict what number you drew. Try it!"
   tags: ["hobby","Python"]
+
+- name: Air con remote
+  logo: /images/portfolio/aircon-icon.png
+  role:
+  timeline: "May 2025 - June 2025"
+  #  repo: https://github.com/kristian-94/aircon-remote
+  url: "/projects/air-con-remote/"
+  summary: A web app to control air conditioning units via IR remote control.
+  tags: [ "hobby", "arduino", "cloud"]
