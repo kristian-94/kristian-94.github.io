@@ -34,6 +34,10 @@ html {
 /* ============================================================
    CSS CUSTOM PROPERTIES — Dark Mode overrides
    ============================================================ */
+html.dark .img-diagram {
+  filter: invert(1) hue-rotate(180deg) contrast(0.8) brightness(1.2);
+}
+
 html.dark {
   --bg:               #0D1B26;
   --bg-alt:           #152232;
@@ -170,6 +174,11 @@ p { margin-bottom: 1rem; }
   50%       { transform: rotate(2deg); }
 }
 
+@keyframes avatar-sway {
+  0%, 100% { transform: rotate(-3deg) translateY(0px); }
+  50%       { transform: rotate(3deg) translateY(-11px); }
+}
+
 /* Typewriter cursor */
 @keyframes blink-caret {
   from, to { border-color: transparent; }
@@ -223,7 +232,7 @@ p { margin-bottom: 1rem; }
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .navbar-brand .brand-star {
@@ -231,6 +240,19 @@ p { margin-bottom: 1rem; }
   animation: spin-sparkle 6s linear infinite;
   color: var(--deco1);
   font-style: normal;
+  margin-right: 4px;
+}
+
+.navbar-brand .brand-logo {
+  height: 28px;
+  width: auto;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.navbar-brand .brand-text {
+  margin-left: -6px;
 }
 
 .navbar-brand:hover {
@@ -409,18 +431,41 @@ p { margin-bottom: 1rem; }
   padding: 80px 20px 40px;
 }
 
-.hero-avatar {
-  width: 140px;
-  height: 140px;
+.hero-avatar-wrap {
+  position: relative;
+  width: 148px;
+  height: 148px;
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.85);
-  object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3), 6px 6px 0 rgba(36,138,170,0.5);
+  overflow: hidden;
+}
+
+.hero-avatar-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../images/beach.jpeg') center center / cover no-repeat;
+  filter: blur(6px) brightness(0.7);
+  transform: scale(1.15);
+  border-radius: 50%;
+}
+
+.hero-avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.85);
   transition: transform 0.3s ease;
 }
 
-.hero-avatar:hover {
+.hero-avatar-wrap {
+  animation: avatar-sway 4s ease-in-out infinite;
+}
+
+.hero-avatar-wrap:hover {
   animation: avatar-wobble 0.6s ease-in-out 2;
 }
 
@@ -1089,13 +1134,14 @@ footer {
    PROJECT DETAIL PAGES
    ============================================================ */
 .project-hero {
-  min-height: 55vh;
+  min-height: 50vh;
   background: var(--navbar-bg);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   position: relative;
   padding-top: 60px;
+  padding-bottom: 60px;
   overflow: hidden;
 }
 
@@ -1105,53 +1151,54 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.4;
+  opacity: 0.25;
 }
 
 .project-hero-bg img {
-  width: 320px;
-  height: 320px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-hero-overlay {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 40px 20px 0;
+  padding: 0 20px;
   width: 100%;
 }
 
 .project-hero-title {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .project-hero-author {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 16px 24px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(4px);
-  margin-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  gap: 14px;
+  margin-top: -36px;
+  position: relative;
+  z-index: 2;
 }
 
 .project-hero-author img {
-  width: 48px;
-  height: 48px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.6);
+  border: 3px solid var(--accent);
   object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  background: var(--bg);
 }
 
 .project-hero-author span {
-  color: rgba(255,255,255,0.85);
-  font-size: 0.95rem;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .project-article {

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arduino IR AC Remote Controller — Kristian Ringer</title>
+  <link rel="icon" type="image/png" href="../../images/site/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -15,8 +16,7 @@
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
     <a href="../../index.html" class="navbar-brand">
-      <i class="brand-star">✦</i>
-      Kristian Ringer
+      <i class="brand-star">✦</i><img src="../../images/site/favicon.png" alt="K" class="brand-logo"><span class="brand-text">ristian Ringer</span>
     </a>
     <ul class="navbar-nav">
       <li><a href="../../index.html#home">Home</a></li>
@@ -43,11 +43,11 @@
     </div>
     <div class="project-hero-overlay">
       <h1 class="project-hero-title">Arduino IR AC Remote Controller</h1>
-      <div class="project-hero-author">
-        <img src="../../images/kristian-square.png" alt="Kristian Ringer">
-        <span>Kristian Ringer</span>
-      </div>
     </div>
+  </div>
+  <div class="project-hero-author">
+    <img src="../../images/kristian-square.png" alt="Kristian Ringer">
+    <span>Kristian Ringer</span>
   </div>
 
   <!-- ========== ARTICLE ========== -->
@@ -85,7 +85,7 @@
     <p>Claude told me it was a power/timing issue with longer signals based on research about 750+ element AC protocol problems. It told me about timing drift and some in depth technical stuff but that turned out to be a red herring. But Claude doesn't know everything...</p>
     <p>But it did let me see timing drift with some python scripts, comparing the remote to my signal.</p>
 
-    <img src="/projects/images/aircon/timing-drift.png" alt="timing-drift">
+    <img src="/projects/images/aircon/timing-drift.png" alt="timing-drift" class="img-diagram">
 
     <p>Cool looking chart.. but not the source of the issue, the drift is pretty minimal as we can see.</p>
     <p>I found on the docs of the IR remote library we're using to capture that the buffer length was likely too low: <a href="https://github.com/Arduino-IRremote/Arduino-IRremote?tab=readme-ov-file#compile-options--macros-for-this-library" target="_blank" rel="noopener">https://github.com/Arduino-IRremote/Arduino-IRremote</a> as it says:</p>
@@ -103,7 +103,7 @@
     <h3>Remote control</h3>
     <p>An ESP32 is a small wifi enabled microcontroller. It's kind of like an arduino in that way, but it also has wifi connectivity which is perfect for this. It works similar to the arduino as well in that we just compile and upload code to it through the arduino IDE.</p>
 
-    <img src="/projects/images/aircon/esp32.png" alt="esp32">
+    <img src="/projects/images/aircon/esp32.png" alt="esp32" class="img-diagram">
 
     <p>It's some C++ code that runs on the ESP32 to create a simple web server. This allows us to receive HTTP GET requests.</p>
     <pre><code>#include &lt;WebServer.h&gt;
@@ -122,7 +122,7 @@ void setup() {
     <p>Could print an enclosure/put it further away.. it works for now.</p>
     <p>Simple web page hosted on a pi, that is the only entrypoint on the home network. Using Cloudflare tunnel we don't have to open ports on the router itself. This server now simply calls <code>192.168.1.115/on</code> and <code>192.168.1.115/off</code>.</p>
 
-    <img src="/projects/images/aircon/flask-pi-aircon.png" alt="flask-pi-aircon">
+    <img src="/projects/images/aircon/flask-pi-aircon.png" alt="flask-pi-aircon" class="img-diagram">
 
     <h1>Learnings</h1>
 

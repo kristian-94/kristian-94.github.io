@@ -16,8 +16,7 @@
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
     <a href="index.html" class="navbar-brand">
-      <i class="brand-star">✦</i>
-      Kristian Ringer
+      <i class="brand-star">✦</i><img src="images/site/favicon.png" alt="K" class="brand-logo"><span class="brand-text">ristian Ringer</span>
     </a>
     <ul class="navbar-nav">
       <li><a href="index.html">Home</a></li>
@@ -43,7 +42,10 @@
     <i class="hero-deco hero-deco-3">✧</i>
     <i class="hero-deco hero-deco-4">★</i>
     <div class="hero-content">
-      <img src="images/kristian-square.png" alt="Kristian Ringer" class="hero-avatar">
+      <div class="hero-avatar-wrap">
+        <div class="hero-avatar-bg"></div>
+        <img src="images/kristian-square.png" alt="Kristian Ringer" class="hero-avatar">
+      </div>
       <p class="hero-greeting">Hi, I am</p>
       <h1 class="hero-name">Kristian Ringer</h1>
       <p class="hero-subtitle"><span class="typed-text" id="typed-subtitle"></span></p>
@@ -63,9 +65,9 @@
       <div class="about-inner">
         <div class="about-info">
           <h3>Kristian Ringer</h3>
-          <p class="about-designation">Software Engineer</p>
-          <p class="about-company">at <a href="https://ovatu.com" target="_blank" rel="noopener">Ovatu</a></p>
-          <p class="about-summary">I am a passionate software engineer with 5 years of working experience. From managing infrastructure, to backend and frontend, I work on the full stack of web apps. I am interested in machine learning and the cutting edge of technology.</p>
+          <p class="about-designation">Tech Lead</p>
+          <p class="about-company">at <a href="https://education.nsw.gov.au" target="_blank" rel="noopener">NSW Department of Education</a></p>
+          <p class="about-summary">Software engineer with 8 years of experience across the full stack — backend APIs, cloud infrastructure, and frontend. Currently leading a team at NSW DoE, building AI agents in my own time, and running a self-hosted homelab.</p>
           <div class="social-links">
             <a href="mailto:kristian.ringer@gmail.com" class="social-link">
               <i class="fas fa-envelope"></i> Email
@@ -73,7 +75,7 @@
             <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener" class="social-link">
               <i class="fab fa-github"></i> Github
             </a>
-            <a href="https://www.linkedin.com/in/Kristian's LinkedIn/" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener" class="social-link">
               <i class="fab fa-linkedin"></i> LinkedIn
             </a>
           </div>
@@ -180,7 +182,7 @@
           <div class="project-name">Number prediction - machine learning</div>
           <div class="project-role">Creator</div>
           <div class="project-timeline">Nov 2022 - Jan 2023</div>
-          <div class="project-summary">Draw a number and this algorithm will predict what number you drew. Try it!</div>
+          <div class="project-summary">Built a neural network and backpropagation engine from scratch in Python, based on Andrej Karpathy's micrograd. No libraries — just math and code.</div>
           <div class="project-tags">
             <span class="project-tag">hobby</span>
             <span class="project-tag">Python</span>
@@ -262,7 +264,15 @@
           <i class="fas fa-server skill-icon skill-icon-fa"></i>
           <div class="skill-info">
             <div class="skill-name">Homelabbing &amp; Self-hosting</div>
-            <div class="skill-desc">Run a personal homelab with a suite of self-hosted services in Docker containers. Deploy AI assistants (OpenClaw) that wake up autonomously to book tennis courts, hunt deals, and deliver daily Sydney briefings.</div>
+            <div class="skill-desc">Run a personal homelab on Linux with a suite of self-hosted services in Docker containers. Comfortable with bash scripting, cron jobs, and server administration. Deploy AI assistants (OpenClaw) that wake up autonomously to book tennis courts, hunt deals, and deliver daily Sydney briefings.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-code-branch skill-icon skill-icon-fa"></i>
+          <div class="skill-info">
+            <div class="skill-name">DevOps &amp; CI/CD</div>
+            <div class="skill-desc">Design and maintain CI/CD pipelines across Bitbucket Pipelines and GitHub Actions — covering automated testing, deployments, environment refreshes, and upstream sync. Own branching strategy, release processes, and developer workflow across multi-app platforms.</div>
           </div>
         </div>
 
@@ -286,7 +296,7 @@
           <img src="images/skills/python.png" alt="Python" class="skill-icon">
           <div class="skill-info">
             <div class="skill-name">Python</div>
-            <div class="skill-desc">Know basic Python programming. Used for scripting, problem solving, code challenges, and prototype APIs with Flask.</div>
+            <div class="skill-desc">Strong Python skills built through ML and AI work — training neural networks, building agentic systems, scripting automation, and prototyping APIs with Flask. Primary language for AI projects.</div>
           </div>
         </div>
 
@@ -309,34 +319,11 @@
         <div class="skill-card">
           <img src="images/skills/javascript.png" alt="Javascript" class="skill-icon">
           <div class="skill-info">
-            <div class="skill-name">Javascript</div>
-            <div class="skill-desc">Experienced with frameworks such as React and Vue, as well as jQuery and vanilla javascript to manipulate a web page.</div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-desc">Strong JavaScript across the stack. Currently working with Vue and React in production. Comfortable with modern JS (ES2020+), async patterns, and component-driven frontend architecture.</div>
           </div>
         </div>
 
-        <div class="skill-card">
-          <img src="images/skills/hugo.png" alt="Hugo" class="skill-icon">
-          <div class="skill-info">
-            <div class="skill-name">Hugo</div>
-            <div class="skill-desc">Used Hugo for static site generation in past projects.</div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <img src="images/skills/linux.png" alt="Linux" class="skill-icon">
-          <div class="skill-info">
-            <div class="skill-name">Linux</div>
-            <div class="skill-desc">Was using as my main operating system for ~3 years 2018-2021. Capable of writing bash/shell scripts, cron jobs, and customisation.</div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <img src="images/skills/git.png" alt="Git" class="skill-icon">
-          <div class="skill-info">
-            <div class="skill-name">Git</div>
-            <div class="skill-desc">Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab.</div>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -379,7 +366,9 @@
               <ul class="position-list">
                 <li>Led the successful migration of Evidence Central (Moodle) from Elastic Beanstalk to a fully high-availability ECS architecture, resolving critical performance and database connection exhaustion issues at scale (80k users).</li>
                 <li>Diagnosed and resolved a failed production cutover caused by 100% CPU utilisation and RDS connection limits; introduced RDS Proxy, a multi-layer caching strategy (APCu + Valkey/Redis), and fixed session timeouts, slow SQL queries, and N+1 issues to stabilise the platform.</li>
-                <li>Drove improvements to developer tooling and deployment processes, including Git-based plugin management and automated CI/CD pipelines.</li>
+                <li>Designed and built a suite of Bitbucket Pipelines covering automated testing, blue/green deployments, environment promotions, and upstream Moodle plugin sync — replacing manual processes across 6 applications.</li>
+                <li>Designed the team's branching strategy and release workflow, balancing stability with regular deployments across multiple environments.</li>
+                <li>Built an automated lower-environment refresh pipeline: restores production RDS snapshots, runs anonymisation via the Moodle Data Cleaner plugin, and promotes the sanitised database downstream — enabling safe, realistic testing without exposing student data.</li>
               </ul>
             </div>
           </div>
@@ -529,9 +518,9 @@
 
     // ---- Subtitle typewriter animation ----
     const phrases = [
-      "I am a Developer",
-      "Passionate about technology",
-      "I work on open-source projects"
+      "I taught Moodle to 10,000 developers",
+      "Tech Lead & Full-stack Engineer",
+      "I build AI agents in my spare time"
     ];
     const el = document.getElementById('typed-subtitle');
     let phraseIndex = 0;
