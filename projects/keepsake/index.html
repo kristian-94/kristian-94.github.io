@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keepsake — Kristian Ringer</title>
+  <link rel="icon" type="image/png" href="../../images/site/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <a href="../../index.html" class="navbar-brand">
+      <i class="brand-star">✦</i><img src="../../images/site/favicon.png" alt="K" class="brand-logo"><span class="brand-text">ristian Ringer</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="../../index.html#home">Home</a></li>
+      <li><a href="../../index.html#about">About</a></li>
+      <li><a href="../../index.html#projects">Projects</a></li>
+      <li><a href="../../index.html#skills">Skills</a></li>
+      <li>
+        <li class="theme-switcher" id="theme-switcher">
+          <button class="theme-icon-btn" aria-label="Theme">⬡</button>
+          <div class="theme-dropdown">
+            <button class="theme-opt" data-theme="system">⬡ System</button>
+            <button class="theme-opt" data-theme="light">☀ Light</button>
+            <button class="theme-opt" data-theme="dark">◐ Dark</button>
+          </div>
+        </li>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="../../images/portfolio/keepsake.png" alt="">
+    </div>
+    <div class="project-hero-overlay">
+      <h1 class="project-hero-title">Keepsake</h1>
+    </div>
+  </div>
+  <!-- ========== ARTICLE ========== -->
+  <article class="project-article">
+    <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+
+    <p>A digital love box — a personalised React app that unlocks a surprise note or memory every 8 hours.</p>
+
+    <img src="screenshots/keepsake.png" alt="Keepsake screenshot" style="max-width:600px;width:100%;display:block;margin:1.5rem auto;border-radius:8px;">
+
+    <h2>The idea</h2>
+    <p>It was 2020 and we were locked down during COVID — we couldn't see each other. I wanted to give someone a gift that kept giving. Not flowers that wilt or a card that gets forgotten in a drawer — something they could open again and again over months. The concept: a locked box that reveals one curated note every 8 hours, filled with memories, reasons I love them, inside jokes, and little quotes.</p>
+
+    <h2>How it works</h2>
+    <p>The app is built in React with Firebase on the backend. When you open the box, it pulls a random note from the database and starts an 8-hour countdown timer. Once the timer runs out, the box glows and you can open it again. Notes are categorised — memories, quotes, cute things, reasons — and you can browse past unlocks too.</p>
+    <p>There's also a hidden admin panel where I could sneak in new notes over time, so the box never ran dry.</p>
+
+    <h2>The stack</h2>
+    <ul>
+      <li><strong>React</strong> — frontend, with React Router for navigation</li>
+      <li><strong>Firebase</strong> — Realtime Database, Authentication, and Cloud Storage for images</li>
+      <li><strong>Semantic UI React</strong> — UI components</li>
+      <li><strong>react-countdown</strong> — the all-important 8-hour timer</li>
+    </ul>
+
+    <h2>Was it worth it?</h2>
+    <p>Yes. 10/10 would over-engineer a love letter again.</p>
+
+  </article>
+
+  <div style="text-align:center;padding:2rem 0 3rem;">
+    <img src="screenshots/love_box.jpg" alt="The Keepsake love box" style="max-width:400px;width:100%;border-radius:8px;">
+  </div>
+
+</body>
+</html>

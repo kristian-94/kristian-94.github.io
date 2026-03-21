@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avalon AI — Kristian Ringer</title>
+  <link rel="icon" type="image/png" href="../../images/site/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .benchmark-table th,
+    .benchmark-table td {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border, #e5e7eb);
+    }
+    .benchmark-table th {
+      font-weight: 700;
+      background: var(--bg-alt, #f9fafb);
+      color: var(--text, #111);
+    }
+    .benchmark-table tr:last-child td { border-bottom: none; }
+    .benchmark-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .benchmark-bar {
+      height: 14px;
+      border-radius: 99px;
+      min-width: 4px;
+    }
+    .bar-haiku   { background: #6366f1; }
+    .bar-openai  { background: #10b981; }
+    .bar-qwen    { background: #f59e0b; }
+    .winner-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: #6366f1;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 99px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .stat-row {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    .stat-box {
+      flex: 1;
+      min-width: 120px;
+      background: var(--bg-alt, #f9fafb);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      text-align: center;
+    }
+    .stat-box .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent, #6366f1);
+      font-family: 'Fredoka One', sans-serif;
+    }
+    .stat-box .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted, #6b7280);
+      margin-top: 0.2rem;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .role-card {
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border, #e5e7eb);
+    }
+    .role-card .role-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+    .role-card .role-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.4;
+    }
+    .role-good  { border-color: #6366f1; background: #eef2ff; }
+    .role-evil  { border-color: #ef4444; background: #fef2f2; }
+    html.dark .role-good { background: #1e1b4b; border-color: #6366f1; }
+    html.dark .role-evil { background: #450a0a; border-color: #ef4444; }
+    html.dark .benchmark-table th { background: var(--bg-alt); }
+    html.dark .stat-box { background: var(--bg-alt); }
+
+    .design-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) { .design-split { grid-template-columns: 1fr; } }
+    .design-box {
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--border, #e5e7eb);
+    }
+    .design-box h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .design-box p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted, #6b7280);
+      line-height: 1.5;
+    }
+    .design-structured { border-color: #6366f1; background: #eef2ff; }
+    .design-natural    { border-color: #10b981; background: #f0fdf4; }
+    html.dark .design-structured { background: #1e1b4b; }
+    html.dark .design-natural    { background: #052e16; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <a href="../../index.html" class="navbar-brand">
+      <i class="brand-star">✦</i><img src="../../images/site/favicon.png" alt="K" class="brand-logo"><span class="brand-text">ristian Ringer</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="../../index.html#home">Home</a></li>
+      <li><a href="../../index.html#about">About</a></li>
+      <li><a href="../../index.html#projects">Projects</a></li>
+      <li><a href="../../index.html#skills">Skills</a></li>
+      <li class="theme-switcher" id="theme-switcher">
+        <button class="theme-icon-btn" aria-label="Theme">☀</button>
+        <div class="theme-dropdown">
+          <button class="theme-opt" data-theme="system">⬡ System</button>
+          <button class="theme-opt" data-theme="light">☀ Light</button>
+          <button class="theme-opt" data-theme="dark">◐ Dark</button>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="intro-screen.png" alt="">
+    </div>
+    <div class="project-hero-overlay">
+      <h1 class="project-hero-title">Avalon AI</h1>
+    </div>
+  </div>
+  <!-- ========== ARTICLE ========== -->
+  <article class="project-article">
+    <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+
+    <p>Can AI lie convincingly? Can it read a room, pick up on deception, and figure out who to trust — with nothing but a chat window? This project is my attempt to find out.</p>
+
+    <p>Avalon AI is a web app where you play <strong>The Resistance: Avalon</strong> alongside AI agents — a social deduction game built around hidden roles, bluffing, and voting out traitors. You get a secret role, sit down with four AI opponents, and the game plays out through a shared chat. I also used it to <strong>benchmark Claude Haiku, GPT-4o mini, and Qwen</strong> — 120 games, just models trying to outwit each other.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">120</div>
+        <div class="stat-label">games played</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3</div>
+        <div class="stat-label">models benchmarked</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5</div>
+        <div class="stat-label">agents per game</div>
+      </div>
+    </div>
+
+    <h2>The game</h2>
+
+    <p>Avalon is a hidden-role game. Most players are on the side of Good, but a few are secretly Evil — and they know who each other are. Good players must figure out who to trust; Evil players must blend in, misdirect, and sabotage missions without getting caught.</p>
+
+    <div class="role-grid">
+      <div class="role-card role-good">
+        <div class="role-name">✦ Merlin</div>
+        <div class="role-desc">Knows who the evil players are, but must hide this — if Evil figures out who Merlin is at the end, Good loses.</div>
+      </div>
+      <div class="role-card role-good">
+        <div class="role-name">✦ Loyal Servant ×2</div>
+        <div class="role-desc">No special knowledge. Must deduce who's evil purely from what people say and how they vote.</div>
+      </div>
+      <div class="role-card role-evil">
+        <div class="role-name">✖ Assassin</div>
+        <div class="role-desc">Knows the other evil player. If Good wins the quests, gets one final shot to identify and assassinate Merlin.</div>
+      </div>
+      <div class="role-card role-evil">
+        <div class="role-name">✖ Minion</div>
+        <div class="role-desc">Knows the Assassin. Must help Evil win missions while staying under the radar.</div>
+      </div>
+    </div>
+
+    <p>Gameplay goes in rounds: a leader proposes a mission team, everyone votes to approve or reject it, and the selected players secretly submit a success or fail card. Evil players can fail missions — but too many failures makes them obvious. Three mission wins and Good takes it, unless the Assassin can identify Merlin at the end.</p>
+
+    <h2>The interesting design problem</h2>
+
+    <p>Avalon has rigid structure: missions, proposals, votes — each with strict rules about who can do what and when. But the game is won and lost in <em>conversation</em>. Reading people, constructing believable lies, arguing for your innocence when you're not innocent.</p>
+
+    <p>Bridging those two things is the core challenge. The system needs agents that can:</p>
+
+    <ol>
+      <li><strong>Reason privately</strong> — form beliefs about who's good and evil, decide what to reveal and what to hide, before saying anything</li>
+      <li><strong>Act in structured ways</strong> — make precise game decisions (propose a team, cast a vote, play a card) at exactly the right moment</li>
+      <li><strong>Speak naturally</strong> — hold contextual conversation between those decisions, without the reasoning leaking into what they say</li>
+    </ol>
+
+    <p>The ordering matters. If a model commits to an answer first, any reasoning that follows is just rationalisation.</p>
+
+    <div class="design-split">
+      <div class="design-box design-structured">
+        <h4>⬡ Structured game actions</h4>
+        <p>Propose a team, vote, play a card — typed function calls the engine validates at specific points in the game flow.</p>
+      </div>
+      <div class="design-box design-natural">
+        <h4>◎ Free-flowing conversation</h4>
+        <p>Between those points, agents speak freely — accusing, deflecting, building trust. Natural language, no fixed structure.</p>
+      </div>
+    </div>
+
+    <p>Each agent has private state — role knowledge, suspicions, internal reasoning — that never leaks into the shared chat.</p>
+
+    <h2>What's built</h2>
+
+    <p>The game rules engine is complete — full Avalon rules for 5 players, with test coverage for mission sizes, vote mechanics, win conditions, and role knowledge assignment. The UI is running: a Nuxt 3 + Vue 3 interface with a live game state panel and group chat, supporting both a Watch Mode (all AI) and a Play Mode where a human joins as a Loyal Servant.</p>
+
+    <p>The database schema is designed to record full game history — every event, move, vote, and message — so games can be replayed and analysed. The structured function call / natural language agent layer is currently in progress.</p>
+
+    <h2>Benchmarking AI models</h2>
+
+    <p>Avalon is a useful benchmark because it tests reasoning, theory of mind, and social inference — things that don't show up in standard evals. I ran <strong>120 games</strong> with three models each playing roughly a third of agent slots: <strong>Claude Haiku</strong>, <strong>GPT-4o mini</strong>, and <strong>Qwen</strong>. Win rate is measured as the fraction of games won when that model was on the Good team.</p>
+
+    <table class="benchmark-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Games played</th>
+          <th>Win rate (Good team)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Claude Haiku</strong> <span class="winner-badge">winner</span></td>
+          <td>40</td>
+          <td>62%</td>
+          <td>
+            <div class="benchmark-bar-wrap">
+              <div class="benchmark-bar bar-haiku" style="width:124px"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>GPT-4o mini</td>
+          <td>40</td>
+          <td>55%</td>
+          <td>
+            <div class="benchmark-bar-wrap">
+              <div class="benchmark-bar bar-openai" style="width:110px"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Qwen</td>
+          <td>40</td>
+          <td>51%</td>
+          <td>
+            <div class="benchmark-bar-wrap">
+              <div class="benchmark-bar bar-qwen" style="width:102px"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Haiku came out ahead, but the margins were tighter than expected. All three were competitive — Qwen in particular held its own. What was more interesting than the numbers was <em>how</em> they played: Haiku tended to be deliberate and cautious; GPT-4o mini was more aggressive with accusations; Qwen had a habit of over-explaining, which occasionally made it look suspicious even when playing Good.</p>
+
+    <h2>What it looks like</h2>
+
+    <a href="https://avalon.ringertech.org" target="_blank" rel="noopener">
+      <img src="end-screen.png" alt="Avalon AI end-game screen — Evil Prevails, with revealed roles and game chat">
+    </a>
+    <p style="font-size:0.85rem;color:var(--text-muted,#6b7280);margin-top:0.5rem;">Evil wins this one. Note the Assassin gloating in the chat.</p>
+
+    <h2>Play it yourself</h2>
+
+    <p>Join as a Loyal Servant alongside four AI opponents. You'll need to figure out who's lying — they'll be trying to figure out the same about you.</p>
+
+    <p>
+      <a href="https://avalon.ringertech.org" target="_blank" rel="noopener" class="project-link" style="display:inline-block;margin-right:0.75rem;">Play live &rarr;</a>
+      <a href="https://github.com/kristian-94/avalon-ai" target="_blank" rel="noopener" class="project-link" style="display:inline-block;">GitHub &rarr;</a>
+    </p>
+
+  </article>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../../index.html#home">Home</a></li>
+            <li><a href="../../index.html#about">About</a></li>
+            <li><a href="../../index.html#projects">Projects</a></li>
+            <li><a href="../../index.html#skills">Skills</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Me</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kristian.ringer@gmail.com">kristian.ringer@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener">github.com/kristian-94</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener">kristian-ringer-9ab515104</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="copyright-year"></span> Kristian Ringer. All rights reserved.
+        <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const switcher = document.getElementById('theme-switcher');
+      const iconBtn = switcher ? switcher.querySelector('.theme-icon-btn') : null;
+      const opts = document.querySelectorAll('.theme-opt');
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(mode) {
+        const isDark = mode === 'dark' || (mode === 'system' && mq.matches);
+        html.classList.toggle('dark', isDark);
+        opts.forEach(o => o.classList.toggle('active', o.dataset.theme === mode));
+      }
+      const saved = localStorage.getItem('theme') || 'system';
+      applyTheme(saved);
+      mq.addEventListener('change', function() {
+        if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
+      });
+      if (iconBtn) {
+        iconBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          switcher.classList.toggle('open');
+        });
+      }
+      document.addEventListener('click', function() {
+        if (switcher) switcher.classList.remove('open');
+      });
+      opts.forEach(function(opt) {
+        opt.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const mode = opt.dataset.theme;
+          if (mode === 'system') { localStorage.removeItem('theme'); } else { localStorage.setItem('theme', mode); }
+          applyTheme(mode);
+          switcher.classList.remove('open');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
