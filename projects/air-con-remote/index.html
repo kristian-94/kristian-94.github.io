@@ -180,7 +180,8 @@ void setup() {
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Kristian Ringer. All rights reserved.
+        &copy; <span id="copyright-year"></span> Kristian Ringer. All rights reserved.
+        <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
       </div>
     </div>
   </footer>
