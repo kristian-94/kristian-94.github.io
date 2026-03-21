@@ -19,15 +19,17 @@
       Kristian Ringer
     </a>
     <ul class="navbar-nav">
-      <li><a href="#home">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li>
-        <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
-          <span class="toggle-icon">☀</span>
-          <span class="toggle-label">Light</span>
-        </button>
+      <li class="theme-switcher" id="theme-switcher">
+        <button class="theme-icon-btn" aria-label="Theme">☀</button>
+        <div class="theme-dropdown">
+          <button class="theme-opt" data-theme="system">⬡ System</button>
+          <button class="theme-opt" data-theme="light">☀ Light</button>
+          <button class="theme-opt" data-theme="dark">◐ Dark</button>
+        </div>
       </li>
     </ul>
   </nav>
@@ -391,7 +393,7 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -421,36 +423,48 @@
   </footer>
 
   <script>
-    // ---- Dark mode toggle ----
+    // ---- Theme switcher (system / light / dark) ----
     (function() {
       const html = document.documentElement;
-      const btn = document.getElementById('dark-toggle');
-      const icon = btn ? btn.querySelector('.toggle-icon') : null;
-      const label = btn ? btn.querySelector('.toggle-label') : null;
-
-      function applyTheme(dark) {
-        if (dark) {
-          html.classList.add('dark');
-          if (icon) icon.textContent = '◐';
-          if (label) label.textContent = 'Dark';
-        } else {
-          html.classList.remove('dark');
-          if (icon) icon.textContent = '☀';
-          if (label) label.textContent = 'Light';
-        }
+      const switcher = document.getElementById('theme-switcher');
+      const iconBtn = switcher ? switcher.querySelector('.theme-icon-btn') : null;
+      const opts = document.querySelectorAll('.theme-opt');
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(mode) {
+        const isDark = mode === 'dark' || (mode === 'system' && mq.matches);
+        html.classList.toggle('dark', isDark);
+        opts.forEach(o => o.classList.toggle('active', o.dataset.theme === mode));
       }
 
-      // Load saved preference
-      const saved = localStorage.getItem('theme');
-      applyTheme(saved === 'dark');
+      const saved = localStorage.getItem('theme') || 'system';
+      applyTheme(saved);
 
-      if (btn) {
-        btn.addEventListener('click', function() {
-          const isDark = html.classList.contains('dark');
-          localStorage.setItem('theme', isDark ? 'light' : 'dark');
-          applyTheme(!isDark);
+      mq.addEventListener('change', function() {
+        if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
+      });
+
+      // Toggle dropdown open/close
+      if (iconBtn) {
+        iconBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          switcher.classList.toggle('open');
         });
       }
+
+      // Close when clicking outside
+      document.addEventListener('click', function() {
+        if (switcher) switcher.classList.remove('open');
+      });
+
+      opts.forEach(function(opt) {
+        opt.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const mode = opt.dataset.theme;
+          if (mode === 'system') { localStorage.removeItem('theme'); } else { localStorage.setItem('theme', mode); }
+          applyTheme(mode);
+          switcher.classList.remove('open');
+        });
+      });
     })();
 
     // ---- Subtitle typewriter animation ----

@@ -1,6 +1,11 @@
 /* ============================================================
    CSS CUSTOM PROPERTIES — Light Mode (default)
    ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
 :root {
   --bg:               #F7F9FA;
   --bg-alt:           #EEF2F5;
@@ -254,43 +259,73 @@ p { margin-bottom: 1rem; }
   transform: translateY(-2px);
 }
 
-/* Dark mode toggle button */
-.dark-toggle {
+/* Theme switcher */
+.theme-switcher {
+  position: relative;
+}
+
+.theme-icon-btn {
   background: none;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 20px;
-  color: rgba(255,255,255,0.85);
+  border: none;
+  color: rgba(255,255,255,0.7);
   cursor: pointer;
-  font-size: 1rem;
-  padding: 4px 10px;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  font-size: 1.1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+  padding: 0;
+}
+
+.theme-icon-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--navbar-bg);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 4px;
+  min-width: 110px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 200;
+}
+
+.theme-switcher.open .theme-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-opt {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
   font-family: inherit;
+  font-size: 0.85rem;
   font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 7px;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
 }
 
-.dark-toggle:hover {
-  border-color: var(--accent);
+.theme-opt:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.theme-opt.active {
   color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.dark-toggle .toggle-icon {
-  font-size: 1rem;
-  transition: transform 0.4s;
-}
-
-.dark-toggle .toggle-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-html.dark .dark-toggle .toggle-icon {
-  transform: rotate(180deg);
 }
 
 /* ============================================================
@@ -1304,8 +1339,7 @@ footer {
     align-items: center;
   }
 
-  .dark-toggle {
-    padding: 8px 10px;
+  .theme-switcher {
     min-height: 44px;
   }
 

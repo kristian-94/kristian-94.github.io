@@ -24,10 +24,14 @@
       <li><a href="../../index.html#projects">Projects</a></li>
       <li><a href="../../index.html#skills">Skills</a></li>
       <li>
-        <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
-          <span class="toggle-icon">☀</span>
-          <span class="toggle-label">Light</span>
-        </button>
+        <li class="theme-switcher" id="theme-switcher">
+          <button class="theme-icon-btn" aria-label="Theme">⬡</button>
+          <div class="theme-dropdown">
+            <button class="theme-opt" data-theme="system">⬡ System</button>
+            <button class="theme-opt" data-theme="light">☀ Light</button>
+            <button class="theme-opt" data-theme="dark">◐ Dark</button>
+          </div>
+        </li>
       </li>
     </ul>
   </nav>
@@ -158,15 +162,31 @@
           if (label) label.textContent = 'Light';
         }
       }
-      const saved = localStorage.getItem('theme');
-      applyTheme(saved === 'dark');
-      if (btn) {
-        btn.addEventListener('click', function() {
-          const isDark = html.classList.contains('dark');
-          localStorage.setItem('theme', isDark ? 'light' : 'dark');
-          applyTheme(!isDark);
-        });
+      const switcher = document.getElementById('theme-switcher');
+      const iconBtn = switcher ? switcher.querySelector('.theme-icon-btn') : null;
+      const opts = document.querySelectorAll('.theme-opt');
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(mode) {
+        const isDark = mode === 'dark' || (mode === 'system' && mq.matches);
+        html.classList.toggle('dark', isDark);
+        opts.forEach(o => o.classList.toggle('active', o.dataset.theme === mode));
       }
+      const saved = localStorage.getItem('theme') || 'system';
+      applyTheme(saved);
+      mq.addEventListener('change', function() {
+        if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
+      });
+      if (iconBtn) { iconBtn.addEventListener('click', function(e) { e.stopPropagation(); switcher.classList.toggle('open'); }); }
+      document.addEventListener('click', function() { if (switcher) switcher.classList.remove('open'); });
+      opts.forEach(function(opt) {
+        opt.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const mode = opt.dataset.theme;
+          if (mode === 'system') { localStorage.removeItem('theme'); } else { localStorage.setItem('theme', mode); }
+          applyTheme(mode);
+          switcher.classList.remove('open');
+        });
+      });
     })();
   </script>
 
