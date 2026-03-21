@@ -47,14 +47,12 @@
       <h1 class="hero-name">Kristian Ringer</h1>
       <p class="hero-subtitle"><span class="typed-text" id="typed-subtitle"></span></p>
     </div>
+    <div class="hero-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" style="display:block;width:100%;height:120px;">
+        <path class="wave-fill" d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"/>
+      </svg>
+    </div>
   </section>
-
-  <!-- Wave: hero → about (hero is dark, about is --bg) -->
-  <div class="section-wave-wrap wave-hero-to-bg">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
-      <path class="wave-fill" d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"/>
-    </svg>
-  </div>
 
   <!-- ========== ABOUT ========== -->
   <section id="about">
@@ -74,7 +72,7 @@
             <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener" class="social-link">
               <i class="fab fa-github"></i> Github
             </a>
-            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.linkedin.com/in/Kristian's LinkedIn/" target="_blank" rel="noopener" class="social-link">
               <i class="fab fa-linkedin"></i> LinkedIn
             </a>
           </div>
@@ -110,9 +108,25 @@
         <button class="filter-btn" data-filter="professional">Professional</button>
         <button class="filter-btn" data-filter="moodle">Moodle</button>
         <button class="filter-btn" data-filter="hobby">Hobby</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
       </div>
 
       <div class="projects-grid">
+
+        <!-- Avalon AI -->
+        <div class="project-card" data-tags="hobby ai python">
+          <i class="fas fa-chess project-logo project-logo-fa"></i>
+          <div class="project-name">Avalon AI</div>
+          <div class="project-role">Creator</div>
+          <div class="project-timeline">2025 - Present</div>
+          <div class="project-summary">Getting AI to play Avalon — a social deduction game of hidden roles, deception, and strategy. Agents reason about trust, bluff, and collaborate to win.</div>
+          <div class="project-tags">
+            <span class="project-tag">hobby</span>
+            <span class="project-tag">ai</span>
+            <span class="project-tag">python</span>
+          </div>
+          <a href="https://github.com/kristian-94/avalon-ai" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
+        </div>
 
         <!-- Moodle Tips -->
         <div class="project-card" data-tags="professional PHP cloud moodle">
@@ -127,37 +141,22 @@
             <span class="project-tag">cloud</span>
             <span class="project-tag">moodle</span>
           </div>
-          <a href="projects/moodletips/index.html" class="project-link">Details &rarr;</a>
+          <a href="projects/moodletips/index.html" class="project-link">View Project &rarr;</a>
         </div>
 
-        <!-- Logbook -->
-        <div class="project-card" data-tags="professional PHP cloud react">
-          <img src="images/portfolio/logbook.png" alt="Logbook" class="project-logo">
-          <div class="project-name">Logbook</div>
-          <div class="project-role">Lead Developer</div>
-          <div class="project-timeline">Jan 2020 - June 2021</div>
-          <div class="project-summary">A custom web app for tracking numbers of hours billed to clients.</div>
-          <div class="project-tags">
-            <span class="project-tag">professional</span>
-            <span class="project-tag">PHP</span>
-            <span class="project-tag">cloud</span>
-            <span class="project-tag">react</span>
-          </div>
-          <a href="projects/logbook/index.html" class="project-link">Details &rarr;</a>
-        </div>
-
-        <!-- Keepsake -->
-        <div class="project-card" data-tags="hobby react">
-          <img src="images/portfolio/keepsake.png" alt="Keepsake" class="project-logo">
-          <div class="project-name">Keepsake</div>
+        <!-- Air con remote -->
+        <div class="project-card" data-tags="hobby arduino cloud">
+          <img src="images/portfolio/aircon-icon.png" alt="Air con remote" class="project-logo">
+          <div class="project-name">Air con remote</div>
           <div class="project-role">Creator</div>
-          <div class="project-timeline">Feb 2020 - Dec 2020</div>
-          <div class="project-summary">An app to store memories and notes for someone special to open them once per day.</div>
+          <div class="project-timeline">May 2025 - June 2025</div>
+          <div class="project-summary">A web app to control air conditioning units via IR remote control.</div>
           <div class="project-tags">
             <span class="project-tag">hobby</span>
-            <span class="project-tag">react</span>
+            <span class="project-tag">arduino</span>
+            <span class="project-tag">cloud</span>
           </div>
-          <a href="https://github.com/kristian-94/keepsake" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+          <a href="projects/air-con-remote/index.html" class="project-link">View Project &rarr;</a>
         </div>
 
         <!-- Calcupa -->
@@ -174,6 +173,20 @@
           <a href="https://calcupa.org" target="_blank" rel="noopener" class="project-link">Visit Site &rarr;</a>
         </div>
 
+        <!-- Number prediction - machine learning -->
+        <div class="project-card" data-tags="hobby Python">
+          <img src="images/sections/skills/python.png" alt="Number prediction - machine learning" class="project-logo">
+          <div class="project-name">Number prediction - machine learning</div>
+          <div class="project-role">Creator</div>
+          <div class="project-timeline">Nov 2022 - Jan 2023</div>
+          <div class="project-summary">Draw a number and this algorithm will predict what number you drew. Try it!</div>
+          <div class="project-tags">
+            <span class="project-tag">hobby</span>
+            <span class="project-tag">Python</span>
+          </div>
+          <a href="projects/micrograd/index.html" class="project-link">View Project &rarr;</a>
+        </div>
+
         <!-- Bring Me Hope Foundation -->
         <div class="project-card" data-tags="professional wordpress">
           <img src="images/portfolio/bringmehope.png" alt="Bring Me Hope Foundation" class="project-logo">
@@ -188,33 +201,34 @@
           <a href="https://bringmehope.org" target="_blank" rel="noopener" class="project-link">Visit Site &rarr;</a>
         </div>
 
-        <!-- Number prediction - machine learning -->
-        <div class="project-card" data-tags="hobby Python">
-          <img src="images/sections/skills/python.png" alt="Number prediction - machine learning" class="project-logo">
-          <div class="project-name">Number prediction - machine learning</div>
-          <div class="project-role"></div>
-          <div class="project-timeline">Nov 2022 - Jan 2023</div>
-          <div class="project-summary">Draw a number and this algorithm will predict what number you drew. Try it!</div>
+        <!-- Logbook -->
+        <div class="project-card" data-tags="professional PHP cloud react">
+          <img src="images/portfolio/logbook.png" alt="Logbook" class="project-logo">
+          <div class="project-name">Logbook</div>
+          <div class="project-role">Lead Developer</div>
+          <div class="project-timeline">Jan 2020 - June 2021</div>
+          <div class="project-summary">A custom web app for tracking numbers of hours billed to clients.</div>
           <div class="project-tags">
-            <span class="project-tag">hobby</span>
-            <span class="project-tag">Python</span>
+            <span class="project-tag">professional</span>
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">cloud</span>
+            <span class="project-tag">react</span>
           </div>
-          <a href="projects/micrograd/index.html" class="project-link">Details &rarr;</a>
+          <a href="projects/logbook/index.html" class="project-link">View Project &rarr;</a>
         </div>
 
-        <!-- Air con remote -->
-        <div class="project-card" data-tags="hobby arduino cloud">
-          <img src="images/portfolio/aircon-icon.png" alt="Air con remote" class="project-logo">
-          <div class="project-name">Air con remote</div>
-          <div class="project-role"></div>
-          <div class="project-timeline">May 2025 - June 2025</div>
-          <div class="project-summary">A web app to control air conditioning units via IR remote control.</div>
+        <!-- Keepsake -->
+        <div class="project-card" data-tags="hobby react">
+          <img src="images/portfolio/keepsake.png" alt="Keepsake" class="project-logo">
+          <div class="project-name">Keepsake</div>
+          <div class="project-role">Creator</div>
+          <div class="project-timeline">Feb 2020 - Dec 2020</div>
+          <div class="project-summary">An app to store memories and notes for someone special to open them once per day.</div>
           <div class="project-tags">
             <span class="project-tag">hobby</span>
-            <span class="project-tag">arduino</span>
-            <span class="project-tag">cloud</span>
+            <span class="project-tag">react</span>
           </div>
-          <a href="projects/air-con-remote/index.html" class="project-link">Details &rarr;</a>
+          <a href="https://github.com/kristian-94/keepsake" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
         </div>
 
       </div>
@@ -234,6 +248,22 @@
       <h2 class="section-title">Skills</h2>
       <hr class="section-divider">
       <div class="skills-grid">
+
+        <div class="skill-card">
+          <i class="fas fa-robot skill-icon skill-icon-fa"></i>
+          <div class="skill-info">
+            <div class="skill-name">AI &amp; Agents</div>
+            <div class="skill-desc">Extremely proficient with Claude Code, MCP servers, agentic workflows, and prompt engineering. Build and orchestrate AI agents for real-world automation tasks.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-server skill-icon skill-icon-fa"></i>
+          <div class="skill-info">
+            <div class="skill-name">Homelabbing &amp; Self-hosting</div>
+            <div class="skill-desc">Run a personal homelab with a suite of self-hosted services in Docker containers. Deploy AI assistants (OpenClaw) that wake up autonomously to book tennis courts, hunt deals, and deliver daily Sydney briefings.</div>
+          </div>
+        </div>
 
         <div class="skill-card">
           <img src="images/skills/kubernetes.png" alt="Kubernetes" class="skill-icon">
@@ -325,9 +355,38 @@
       <hr class="section-divider">
       <div class="timeline">
 
+        <!-- NSW Department of Education -->
+        <div class="timeline-item">
+          <div class="timeline-node">2025</div>
+          <div class="timeline-content">
+            <div class="timeline-company"><a href="https://education.nsw.gov.au" target="_blank" rel="noopener">NSW Department of Education</a></div>
+            <div class="timeline-location">Sydney</div>
+            <div class="timeline-overview">VET for Secondary Students (VETSS) is a suite of web applications supporting Vocational Education and Training in NSW schools, used by over 80,000 students and teachers.</div>
+            <div class="timeline-position">
+              <div class="position-header">
+                <span class="position-title">Developer &rarr; Tech Lead</span>
+                <span class="position-dates">2025 &ndash; Present</span>
+              </div>
+              <div class="position-section-label">Responsibilities</div>
+              <ul class="position-list">
+                <li>Tech lead across a suite of 6 applications — 3 Laravel apps, 1 PHP legacy app, and 2 Moodle LMS sites — coordinating development, deployments, and architecture decisions.</li>
+                <li>Maintain and develop features across PHP backends, REST API integrations, and the Moodle plugin framework.</li>
+                <li>Manage AWS infrastructure including ECS, RDS Aurora, ElastiCache, CloudFront, and S3, with Terraform-based IaC and Bitbucket pipelines.</li>
+                <li>Monitor application health, cron jobs, and scheduled tasks via CloudWatch dashboards.</li>
+              </ul>
+              <div class="position-section-label">Achievements</div>
+              <ul class="position-list">
+                <li>Led the successful migration of Evidence Central (Moodle) from Elastic Beanstalk to a fully high-availability ECS architecture, resolving critical performance and database connection exhaustion issues at scale (80k users).</li>
+                <li>Diagnosed and resolved a failed production cutover caused by 100% CPU utilisation and RDS connection limits; introduced RDS Proxy, a multi-layer caching strategy (APCu + Valkey/Redis), and fixed session timeouts, slow SQL queries, and N+1 issues to stabilise the platform.</li>
+                <li>Drove improvements to developer tooling and deployment processes, including Git-based plugin management and automated CI/CD pipelines.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <!-- Ovatu -->
         <div class="timeline-item">
-          <div class="timeline-node">1</div>
+          <div class="timeline-node">2021</div>
           <div class="timeline-content">
             <div class="timeline-company"><a href="https://ovatu.com" target="_blank" rel="noopener">Ovatu</a></div>
             <div class="timeline-location">Sydney</div>
@@ -356,7 +415,7 @@
 
         <!-- Catalyst IT -->
         <div class="timeline-item">
-          <div class="timeline-node">2</div>
+          <div class="timeline-node">2018</div>
           <div class="timeline-content">
             <div class="timeline-company"><a href="https://catalyst-au.net" target="_blank" rel="noopener">Catalyst IT</a></div>
             <div class="timeline-location">Australia</div>
@@ -412,7 +471,7 @@
           </div>
           <div class="footer-contact-item">
             <i class="fab fa-linkedin"></i>
-            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener">kristian-ringer-9ab515104</a>
+            <a href="https://www.linkedin.com/in/Kristian's LinkedIn/" target="_blank" rel="noopener">Kristian's LinkedIn</a>
           </div>
         </div>
       </div>
