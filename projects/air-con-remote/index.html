@@ -6,7 +6,7 @@
   <title>Arduino IR AC Remote Controller — Kristian Ringer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
@@ -14,12 +14,21 @@
 
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
-    <a href="../../index.html" class="navbar-brand">Kristian Ringer</a>
+    <a href="../../index.html" class="navbar-brand">
+      <i class="brand-star">✦</i>
+      Kristian Ringer
+    </a>
     <ul class="navbar-nav">
       <li><a href="../../index.html#home">Home</a></li>
       <li><a href="../../index.html#about">About</a></li>
       <li><a href="../../index.html#projects">Projects</a></li>
       <li><a href="../../index.html#skills">Skills</a></li>
+      <li>
+        <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+          <span class="toggle-icon">☀</span>
+          <span class="toggle-label">Light</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -167,10 +176,39 @@ void setup() {
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2024 Kristian Ringer. All rights reserved.
+        &copy; 2026 Kristian Ringer. All rights reserved.
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const btn = document.getElementById('dark-toggle');
+      const icon = btn ? btn.querySelector('.toggle-icon') : null;
+      const label = btn ? btn.querySelector('.toggle-label') : null;
+      function applyTheme(dark) {
+        if (dark) {
+          html.classList.add('dark');
+          if (icon) icon.textContent = '◐';
+          if (label) label.textContent = 'Dark';
+        } else {
+          html.classList.remove('dark');
+          if (icon) icon.textContent = '☀';
+          if (label) label.textContent = 'Light';
+        }
+      }
+      const saved = localStorage.getItem('theme');
+      applyTheme(saved === 'dark');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          const isDark = html.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'light' : 'dark');
+          applyTheme(!isDark);
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>

@@ -6,7 +6,7 @@
   <title>Kristian Ringer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,17 +14,31 @@
 
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
-    <a href="index.html" class="navbar-brand">Kristian Ringer</a>
+    <a href="index.html" class="navbar-brand">
+      <i class="brand-star">✦</i>
+      Kristian Ringer
+    </a>
     <ul class="navbar-nav">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li>
+        <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+          <span class="toggle-icon">☀</span>
+          <span class="toggle-label">Light</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
   <!-- ========== HERO ========== -->
   <section id="home" class="hero">
+    <div class="hero-blob"></div>
+    <i class="hero-deco hero-deco-1">✦</i>
+    <i class="hero-deco hero-deco-2">◆</i>
+    <i class="hero-deco hero-deco-3">✧</i>
+    <i class="hero-deco hero-deco-4">★</i>
     <div class="hero-content">
       <img src="images/kristian-square.png" alt="Kristian Ringer" class="hero-avatar">
       <p class="hero-greeting">Hi, I am</p>
@@ -32,6 +46,13 @@
       <p class="hero-subtitle"><span class="typed-text" id="typed-subtitle"></span></p>
     </div>
   </section>
+
+  <!-- Wave: hero → about (hero is dark, about is --bg) -->
+  <div class="section-wave-wrap wave-hero-to-bg">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+      <path class="wave-fill" d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"/>
+    </svg>
+  </div>
 
   <!-- ========== ABOUT ========== -->
   <section id="about">
@@ -68,6 +89,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Wave: about → projects (about=--bg, projects=--bg-alt) -->
+  <div class="section-wave-wrap wave-bg-to-alt">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+      <path class="wave-fill" d="M0,20 C480,55 960,0 1440,35 L1440,60 L0,60 Z"/>
+    </svg>
+  </div>
 
   <!-- ========== PROJECTS ========== -->
   <section id="projects">
@@ -191,6 +219,13 @@
     </div>
   </section>
 
+  <!-- Wave: projects → skills (projects=--bg-alt, skills=--bg) -->
+  <div class="section-wave-wrap wave-alt-to-bg">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+      <path class="wave-fill" d="M0,35 C360,5 1080,55 1440,20 L1440,60 L0,60 Z"/>
+    </svg>
+  </div>
+
   <!-- ========== SKILLS ========== -->
   <section id="skills">
     <div class="container">
@@ -273,6 +308,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Wave: skills → experience (skills=--bg, experience=--bg-alt) -->
+  <div class="section-wave-wrap wave-bg-to-alt">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+      <path class="wave-fill" d="M0,25 C480,60 960,5 1440,40 L1440,60 L0,60 Z"/>
+    </svg>
+  </div>
 
   <!-- ========== WORK EXPERIENCE ========== -->
   <section id="experiences">
@@ -373,12 +415,44 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2024 Kristian Ringer. All rights reserved.
+        &copy; 2026 Kristian Ringer. All rights reserved.
       </div>
     </div>
   </footer>
 
   <script>
+    // ---- Dark mode toggle ----
+    (function() {
+      const html = document.documentElement;
+      const btn = document.getElementById('dark-toggle');
+      const icon = btn ? btn.querySelector('.toggle-icon') : null;
+      const label = btn ? btn.querySelector('.toggle-label') : null;
+
+      function applyTheme(dark) {
+        if (dark) {
+          html.classList.add('dark');
+          if (icon) icon.textContent = '◐';
+          if (label) label.textContent = 'Dark';
+        } else {
+          html.classList.remove('dark');
+          if (icon) icon.textContent = '☀';
+          if (label) label.textContent = 'Light';
+        }
+      }
+
+      // Load saved preference
+      const saved = localStorage.getItem('theme');
+      applyTheme(saved === 'dark');
+
+      if (btn) {
+        btn.addEventListener('click', function() {
+          const isDark = html.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'light' : 'dark');
+          applyTheme(!isDark);
+        });
+      }
+    })();
+
     // ---- Subtitle typewriter animation ----
     const phrases = [
       "I am a Developer",
