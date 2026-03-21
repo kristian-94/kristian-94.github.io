@@ -1,0 +1,24 @@
+{
+  "name": "kristian-94.github.io",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with Hugo and the Toha theme, showcasing projects, experience, and publications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristian-94/kristian-94.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kristian-94/kristian-94.github.io/issues"
+  },
+  "homepage": "https://github.com/kristian-94/kristian-94.github.io#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

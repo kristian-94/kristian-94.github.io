@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arduino IR AC Remote Controller — Kristian Ringer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <a href="../../index.html" class="navbar-brand">Kristian Ringer</a>
+    <ul class="navbar-nav">
+      <li><a href="../../index.html#home">Home</a></li>
+      <li><a href="../../index.html#about">About</a></li>
+      <li><a href="../../index.html#projects">Projects</a></li>
+      <li><a href="../../index.html#skills">Skills</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="../../images/portfolio/aircon-icon.png" alt="">
+    </div>
+    <div class="project-hero-overlay">
+      <h1 class="project-hero-title">Arduino IR AC Remote Controller</h1>
+      <div class="project-hero-author">
+        <img src="../../images/kristian-square.png" alt="Kristian Ringer">
+        <span>Kristian Ringer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ARTICLE ========== -->
+  <article class="project-article">
+    <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+
+    <h3>Problem</h3>
+    <p>I have an air conditioner that I want to control remotely. Turn it on before I get home, or from anywhere, using my phone. It's not 'smart', doesn't have those features built in.</p>
+
+    <h3>Approach</h3>
+    <p>The idea is to capture the IR (infra-red) signal from the air con's remote, and be able to output that again on demand. We don't need to decode the signal or understand how fujitsu encodes things.</p>
+    <p>We need an IR receiver, to capture the raw data. Once we have that, we don't need the receiver anymore. Then we just need the IR emitter to output the captured codes.</p>
+
+    <h3>Hardware Implementation</h3>
+    <p>An Arduino is a microcontroller board. It's really good at input and output of electronic signals. The first thing was to capture the signal using the arduino and IR receiver. The serial monitor outputs over USB to the computer everything that is happening on the arduino.</p>
+    <p>The whole build process worked fine, pretty simple. Arduino IDE works well to compile and upload code. The IR receiver worked well to capture the output of the remote. Everything ran at a frequency of 38 KHz as is pretty normal for air conditioners.</p>
+    <p>Here it is in action:</p>
+
+    <video width="600" controls>
+      <source src="/projects/videos/aircon/air-con-capture.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+
+    <p>The way this works is the IR led turns on and off very quickly. The 'long' pulses are seen as 1, and short pulses as 0, and in that way it encodes information. It also has a certain tolerance around the pulse time, since it's so short it naturally varies, about 350-450us for short pulses, 1250 for long ones. The 3200,1650 is a spacer pulse, to signal the start/end of a signal.</p>
+
+    <img src="/projects/images/aircon/serial-capture.png" alt="serial-capture">
+
+    <h5>Issue 1: Running out of memory</h5>
+    <p>The captured commands are so long, that the Arduino did not let me upload that compiled script. We were running out of SRAM, ie. Static Random Access Memory that is really fast but limited.</p>
+    <p>Claude got around this by storing the constants in program memory instead, which was really nice to breeze past that issue.</p>
+    <pre><code>const uint16_t rawData_OFF[] PROGMEM = {...};</code></pre>
+
+    <h5>Issue 2: HIGH/setting command did not work</h5>
+    <p><strong>Problem</strong>: OFF command transmitted successfully, but ON command failed</p>
+    <p>Claude told me it was a power/timing issue with longer signals based on research about 750+ element AC protocol problems. It told me about timing drift and some in depth technical stuff but that turned out to be a red herring. But Claude doesn't know everything...</p>
+    <p>But it did let me see timing drift with some python scripts, comparing the remote to my signal.</p>
+
+    <img src="/projects/images/aircon/timing-drift.png" alt="timing-drift">
+
+    <p>Cool looking chart.. but not the source of the issue, the drift is pretty minimal as we can see.</p>
+    <p>I found on the docs of the IR remote library we're using to capture that the buffer length was likely too low: <a href="https://github.com/Arduino-IRremote/Arduino-IRremote?tab=readme-ov-file#compile-options--macros-for-this-library" target="_blank" rel="noopener">https://github.com/Arduino-IRremote/Arduino-IRremote</a> as it says:</p>
+    <blockquote>
+      <p>100 is sufficient for <em>regular</em> protocols of up to 48 bits, but for most air conditioner protocols a value of up to 750 is required</p>
+    </blockquote>
+    <p>The ON signal was being truncated at exactly 200 elements due to a small buffer size.</p>
+    <pre><code class="language-js">#define RAW_BUFFER_LENGTH 400</code></pre>
+    <p>Air cons send the full state of the air con every time, like the temp, fan speed, mode, timers. So this is a pretty long signal, and took 260 pulses, which when truncated won't do anything.</p>
+
+    <h5>Issue 3: ON command is different to 'set to HIGH'</h5>
+    <p>Even with the full captured command, it still wouldn't turn on, but it would set to HIGH if the unit was already on. It turns out that there is a different command to turn on AND set to high, rather than just set to high. Once I did a recapture, that worked. I compared the two captures and could see a few bits changed from 0 -&gt; 1 so that made me try the new signal.</p>
+    <p>Now the IR emitter is working great, and controls the air con. But we're controlling it by having it plugged into the computer and manually telling it to emit each signal. How can we control it remotely?</p>
+
+    <h3>Remote control</h3>
+    <p>An ESP32 is a small wifi enabled microcontroller. It's kind of like an arduino in that way, but it also has wifi connectivity which is perfect for this. It works similar to the arduino as well in that we just compile and upload code to it through the arduino IDE.</p>
+
+    <img src="/projects/images/aircon/esp32.png" alt="esp32">
+
+    <p>It's some C++ code that runs on the ESP32 to create a simple web server. This allows us to receive HTTP GET requests.</p>
+    <pre><code>#include &lt;WebServer.h&gt;
+uint16_t acOff[116] = {3200,1650,350,450,...};
+uint16_t acOnHigh[259] = {3200,1650,350,450,...};
+void setup() {
+   server.on("/on", handleOn);
+   server.on("/off", handleOff);
+}</code></pre>
+    <p>The <code>WebServer</code> library is doing all that for us. Now we just have to do GET requests to the IP address of the esp32 to control it.</p>
+
+    <h3>Final mounting (for now)</h3>
+
+    <img src="/projects/images/aircon/mounted-setup.jpeg" alt="mounted-setup">
+
+    <p>Could print an enclosure/put it further away.. it works for now.</p>
+    <p>Simple web page hosted on a pi, that is the only entrypoint on the home network. Using Cloudflare tunnel we don't have to open ports on the router itself. This server now simply calls <code>192.168.1.115/on</code> and <code>192.168.1.115/off</code>.</p>
+
+    <img src="/projects/images/aircon/flask-pi-aircon.png" alt="flask-pi-aircon">
+
+    <h1>Learnings</h1>
+
+    <h3>How air con, IR, pi, arduino and esp32 work</h3>
+    <p>It was really cool seeing the real captured IR data coming through on the serial monitor. Normally using a remote you just wouldn't think about what is happening on a lower level like that, and it was cool to see the invisible signal being made visible.</p>
+    <p>I understand more what a pi is good for, more of a server/full computer, vs arduino/esp32 which is for controlling components directly. Working together in this system is a cool way to allow each to play to its strengths.</p>
+
+    <div class="mermaid-block">
+      <p style="font-weight:700;margin-bottom:8px;color:#1C2D41;">System Architecture</p>
+      <pre>graph LR
+    USER["📱 User / iPhone Browser"]
+    PI["🥧 Raspberry Pi / Flask Server"]
+    ESP["💡 ESP32 / 192.168.1.115 / HTTP + IR"]
+    AC["❄️ Air Conditioner"]
+
+    USER ==&gt;|"HTTPS / ac.ringertech.org"| PI
+    PI ==&gt;|"HTTP GET / /on or /off"| ESP
+    ESP ==&gt;|"38kHz IR Signal"| AC</pre>
+    </div>
+
+    <h3>Claude</h3>
+    <p>It is really helpful to have claude as a fallback, rubber duck debugger and helper. It felt like I couldn't really get stuck too much, I always had a knowledgable tool to push through any hiccups. It makes the whole project smoother, and more than that just reduces anxiety and gives confidence. I know I could do many other projects and it feels more exciting and fun having that tool to unstick yourself. I also could ask many more follow up questions about how the circuit, code, and components worked.</p>
+    <p>Of course, having it write the initial arduino code was also super helpful because I don't know all the intricacies of the syntax.</p>
+    <p>Having said that, it made me get extra stuck when the signal was being truncated to 200, suggesting timing/other issues... I think without claude I would have figured that out faster.</p>
+    <p>On to the next one...</p>
+  </article>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../../index.html#home">Home</a></li>
+            <li><a href="../../index.html#about">About</a></li>
+            <li><a href="../../index.html#projects">Projects</a></li>
+            <li><a href="../../index.html#skills">Skills</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Me</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kristian.ringer@gmail.com">kristian.ringer@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener">github.com/kristian-94</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener">kristian-ringer-9ab515104</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Kristian Ringer. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

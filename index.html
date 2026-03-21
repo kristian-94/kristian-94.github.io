@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristian Ringer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Kristian Ringer</a>
+    <ul class="navbar-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="images/kristian-square.png" alt="Kristian Ringer" class="hero-avatar">
+      <p class="hero-greeting">Hi, I am</p>
+      <h1 class="hero-name">Kristian Ringer</h1>
+      <p class="hero-subtitle"><span class="typed-text" id="typed-subtitle"></span></p>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <hr class="section-divider">
+      <div class="about-inner">
+        <div class="about-info">
+          <h3>Kristian Ringer</h3>
+          <p class="about-designation">Software Engineer</p>
+          <p class="about-company">at <a href="https://ovatu.com" target="_blank" rel="noopener">Ovatu</a></p>
+          <p class="about-summary">I am a passionate software engineer with 5 years of working experience. From managing infrastructure, to backend and frontend, I work on the full stack of web apps. I am interested in machine learning and the cutting edge of technology.</p>
+          <div class="social-links">
+            <a href="mailto:kristian.ringer@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener" class="social-link">
+              <i class="fab fa-github"></i> Github
+            </a>
+            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener" class="social-link">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="about-badges">
+            <h4>Certifications</h4>
+            <div class="badge-cert">
+              <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png" alt="AWS Certified Solutions Architect - Associate">
+              <span>AWS Certified Solutions Architect - Associate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <hr class="section-divider">
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="professional">Professional</button>
+        <button class="filter-btn" data-filter="moodle">Moodle</button>
+        <button class="filter-btn" data-filter="hobby">Hobby</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Moodle Tips -->
+        <div class="project-card" data-tags="professional PHP cloud moodle">
+          <img src="images/portfolio/Moodle tips logo.png" alt="Moodle Tips" class="project-logo">
+          <div class="project-name">Moodle Tips</div>
+          <div class="project-role">Creator</div>
+          <div class="project-timeline">May 2020 - Present</div>
+          <div class="project-summary">A Youtube channel, online course and discord community centered around Moodle development and training.</div>
+          <div class="project-tags">
+            <span class="project-tag">professional</span>
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">cloud</span>
+            <span class="project-tag">moodle</span>
+          </div>
+          <a href="projects/moodletips/index.html" class="project-link">Details &rarr;</a>
+        </div>
+
+        <!-- Logbook -->
+        <div class="project-card" data-tags="professional PHP cloud react">
+          <img src="images/portfolio/logbook.png" alt="Logbook" class="project-logo">
+          <div class="project-name">Logbook</div>
+          <div class="project-role">Lead Developer</div>
+          <div class="project-timeline">Jan 2020 - June 2021</div>
+          <div class="project-summary">A custom web app for tracking numbers of hours billed to clients.</div>
+          <div class="project-tags">
+            <span class="project-tag">professional</span>
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">cloud</span>
+            <span class="project-tag">react</span>
+          </div>
+          <a href="projects/logbook/index.html" class="project-link">Details &rarr;</a>
+        </div>
+
+        <!-- Keepsake -->
+        <div class="project-card" data-tags="hobby react">
+          <img src="images/portfolio/keepsake.png" alt="Keepsake" class="project-logo">
+          <div class="project-name">Keepsake</div>
+          <div class="project-role">Creator</div>
+          <div class="project-timeline">Feb 2020 - Dec 2020</div>
+          <div class="project-summary">An app to store memories and notes for someone special to open them once per day.</div>
+          <div class="project-tags">
+            <span class="project-tag">hobby</span>
+            <span class="project-tag">react</span>
+          </div>
+          <a href="https://github.com/kristian-94/keepsake" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+        </div>
+
+        <!-- Calcupa -->
+        <div class="project-card" data-tags="moodle professional">
+          <img src="images/sections/projects/toha.png" alt="Calcupa" class="project-logo">
+          <div class="project-name">Calcupa</div>
+          <div class="project-role">Consultant</div>
+          <div class="project-timeline">Aug 2022 - Present</div>
+          <div class="project-summary">A new Moodle site involving theming, branding and custom integration to allow access to users and authentication from external system.</div>
+          <div class="project-tags">
+            <span class="project-tag">moodle</span>
+            <span class="project-tag">professional</span>
+          </div>
+          <a href="https://calcupa.org" target="_blank" rel="noopener" class="project-link">Visit Site &rarr;</a>
+        </div>
+
+        <!-- Bring Me Hope Foundation -->
+        <div class="project-card" data-tags="professional wordpress">
+          <img src="images/sections/projects/toha.png" alt="Bring Me Hope Foundation" class="project-logo">
+          <div class="project-name">Bring Me Hope Foundation</div>
+          <div class="project-role">Consultant</div>
+          <div class="project-timeline">Jan 2021 - Dec 2021</div>
+          <div class="project-summary">Maintenance and updates for the Bring Me Hope WordPress site: Payment integrations for donations, instagram feed integration, and theme and style changes</div>
+          <div class="project-tags">
+            <span class="project-tag">professional</span>
+            <span class="project-tag">wordpress</span>
+          </div>
+          <a href="https://bringmehope.org" target="_blank" rel="noopener" class="project-link">Visit Site &rarr;</a>
+        </div>
+
+        <!-- Number prediction - machine learning -->
+        <div class="project-card" data-tags="hobby Python">
+          <img src="images/sections/projects/toha.png" alt="Number prediction - machine learning" class="project-logo">
+          <div class="project-name">Number prediction - machine learning</div>
+          <div class="project-role"></div>
+          <div class="project-timeline">Nov 2022 - Jan 2023</div>
+          <div class="project-summary">Draw a number and this algorithm will predict what number you drew. Try it!</div>
+          <div class="project-tags">
+            <span class="project-tag">hobby</span>
+            <span class="project-tag">Python</span>
+          </div>
+          <a href="projects/micrograd/index.html" class="project-link">Details &rarr;</a>
+        </div>
+
+        <!-- Air con remote -->
+        <div class="project-card" data-tags="hobby arduino cloud">
+          <img src="images/portfolio/aircon-icon.png" alt="Air con remote" class="project-logo">
+          <div class="project-name">Air con remote</div>
+          <div class="project-role"></div>
+          <div class="project-timeline">May 2025 - June 2025</div>
+          <div class="project-summary">A web app to control air conditioning units via IR remote control.</div>
+          <div class="project-tags">
+            <span class="project-tag">hobby</span>
+            <span class="project-tag">arduino</span>
+            <span class="project-tag">cloud</span>
+          </div>
+          <a href="projects/air-con-remote/index.html" class="project-link">Details &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <hr class="section-divider">
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <img src="images/skills/kubernetes.png" alt="Kubernetes" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Kubernetes</div>
+            <div class="skill-desc">Capable of deploying and managing applications on Kubernetes. Experienced in writing Kubernetes helm charts and deployment processes.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/php.png" alt="PHP" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">PHP</div>
+            <div class="skill-desc">Using as my main language for professional development. Capable of writing scalable, testable, and maintainable programs. Laravel, Yii, Moodle frameworks.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/python.png" alt="Python" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Python</div>
+            <div class="skill-desc">Know basic Python programming. Used for scripting, problem solving, code challenges, and prototype APIs with Flask.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/cloud.png" alt="Cloud Computing" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Cloud Computing</div>
+            <div class="skill-desc">Worked with most of the major clouds such as GCP and AWS. Have used command line as well as web based approaches, and Terraform.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/docker.svg" alt="Docker" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Docker</div>
+            <div class="skill-desc">Docker is a great tool for reproducible environments, whether local or production. Experienced with docker compose, Tilt.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/javascript.png" alt="Javascript" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Javascript</div>
+            <div class="skill-desc">Experienced with frameworks such as React and Vue, as well as jQuery and vanilla javascript to manipulate a web page.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/hugo.png" alt="Hugo" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Hugo</div>
+            <div class="skill-desc">Proficient in using Hugo, a popular static site generator, to create and manage dynamic websites (like this one!).</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/linux.png" alt="Linux" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Linux</div>
+            <div class="skill-desc">Was using as my main operating system for ~3 years 2018-2021. Capable of writing bash/shell scripts, cron jobs, and customisation.</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img src="images/skills/git.png" alt="Git" class="skill-icon">
+          <div class="skill-info">
+            <div class="skill-name">Git</div>
+            <div class="skill-desc">Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORK EXPERIENCE ========== -->
+  <section id="experiences">
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <hr class="section-divider">
+      <div class="timeline">
+
+        <!-- Ovatu -->
+        <div class="timeline-item">
+          <div class="timeline-node">1</div>
+          <div class="timeline-content">
+            <div class="timeline-company"><a href="https://ovatu.com" target="_blank" rel="noopener">Ovatu</a></div>
+            <div class="timeline-location">Sydney</div>
+            <div class="timeline-overview">Ovatu provides fast and intuitive booking software as a service. Integrates with booking widgets, Facebook, Stripe, and more.</div>
+            <div class="timeline-position">
+              <div class="position-header">
+                <span class="position-title">Web Developer</span>
+                <span class="position-dates">Jan 2021 &ndash; Present</span>
+              </div>
+              <div class="position-section-label">Responsibilities</div>
+              <ul class="position-list">
+                <li>Design and develop APIs for various new features such as bookings, file handling, and permissions, with performant and tested, reliable code.</li>
+                <li>Monitor backend performance, cron jobs and message queues.</li>
+                <li>Refactor and streamline codebase, introducing modern programming principles.</li>
+              </ul>
+              <div class="position-section-label">Achievements</div>
+              <ul class="position-list">
+                <li>Implemented new authentication flows using OAuth2 and JWTs. New authorization using roles with specific grants.</li>
+                <li>Rest API changes for consistent input validation, rendering of errors and objects, styles implementation for each object.</li>
+                <li>Set up live demo environment infrastructure: kubernetes, concourse runner pipeline, RDS aurora v2 DB + data generation</li>
+                <li>Introduced automated testing with Github actions and Phpunit unit and integration tests. Wrote tests for every endpoint in the app.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catalyst IT -->
+        <div class="timeline-item">
+          <div class="timeline-node">2</div>
+          <div class="timeline-content">
+            <div class="timeline-company"><a href="https://catalyst-au.net" target="_blank" rel="noopener">Catalyst IT</a></div>
+            <div class="timeline-location">Australia</div>
+            <div class="timeline-overview">Catalyst develops, designs and supports the Moodle open source solution for enterprise level and growing organisations including: course and content management systems, systems integration, cloud hosting and 24/7 IT managed services.</div>
+            <div class="timeline-position">
+              <div class="position-header">
+                <span class="position-title">Junior Web Developer &rarr; Team Tech Lead</span>
+                <span class="position-dates">May 2018 &ndash; Dec 2020</span>
+              </div>
+              <div class="position-section-label">Responsibilities</div>
+              <ul class="position-list">
+                <li>Maintenance and changes for Moodle clients</li>
+                <li>Work with PHP backend, API integrations, and the moodle framework.</li>
+                <li>Lead team meeting with clients with current project status, as well as technical business analysis.</li>
+              </ul>
+              <div class="position-section-label">Achievements</div>
+              <ul class="position-list">
+                <li>Successfully implemented multiple major Moodle upgrade projects involving managing custom plugins and themes.</li>
+                <li>Lead an implementation of Microsoft integration suite of plugins for authentication and custom sync into university student database.</li>
+                <li>Trusted with onboarding and improved documentation while streamlining processes.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experiences">Work Experience</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Me</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kristian.ringer@gmail.com">kristian.ringer@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener">github.com/kristian-94</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener">kristian-ringer-9ab515104</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Kristian Ringer. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Subtitle typewriter animation ----
+    const phrases = [
+      "I am a Developer",
+      "Passionate about technology",
+      "I work on open-source projects"
+    ];
+    const el = document.getElementById('typed-subtitle');
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    const typingSpeed = 80;
+    const deletingSpeed = 40;
+    const pauseAfterType = 1800;
+    const pauseAfterDelete = 400;
+
+    function type() {
+      const current = phrases[phraseIndex];
+      if (!deleting) {
+        el.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(type, pauseAfterType);
+          return;
+        }
+        setTimeout(type, typingSpeed);
+      } else {
+        el.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(type, pauseAfterDelete);
+          return;
+        }
+        setTimeout(type, deletingSpeed);
+      }
+    }
+    type();
+
+    // ---- Project filter ----
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          const tags = card.dataset.tags.toLowerCase().split(' ');
+          if (filter === 'all' || tags.includes(filter.toLowerCase())) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
