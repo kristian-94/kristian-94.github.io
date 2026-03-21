@@ -45,11 +45,6 @@
       <h1 class="project-hero-title">Creating Moodle Tips</h1>
     </div>
   </div>
-  <div class="project-hero-author">
-    <img src="../../images/kristian-square.png" alt="Kristian Ringer">
-    <span>Kristian Ringer</span>
-  </div>
-
   <!-- ========== ARTICLE ========== -->
   <article class="project-article">
     <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
@@ -77,20 +72,20 @@
     <h4>Moodle tips website</h4>
     <p>Check out the main site <a href="https://prestige.tips/moodle-tips" target="_blank" rel="noopener">https://prestige.tips/moodle-tips</a> (I couldn't use moodle.tips because of <a href="https://moodle.com/trademarks" target="_blank" rel="noopener">trademarks</a>)</p>
     <a href="https://prestige.tips/moodle-tips" target="_blank" rel="noopener">
-      <img src="/projects/images/moodle_tips_screenshot.png" alt="Moodle Tips screenshot">
+      <img src="../images/moodle_tips_screenshot.png" alt="Moodle Tips screenshot">
     </a>
 
     <h2>Results</h2>
     <p>The channel has helped many people, some comments are copied below. Thanks to all for watching and learning!</p>
 
-    <img src="/projects/images/moodletips_comments/comment1.png" alt="Comment 1">
-    <img src="/projects/images/moodletips_comments/comment2.png" alt="Comment 2">
-    <img src="/projects/images/moodletips_comments/comment3.png" alt="Comment 3">
-    <img src="/projects/images/moodletips_comments/comment4.png" alt="Comment 4">
-    <img src="/projects/images/moodletips_comments/comment5.png" alt="Comment 5">
-    <img src="/projects/images/moodletips_comments/comment6.png" alt="Comment 6">
-    <img src="/projects/images/moodletips_comments/comment7.png" alt="Comment 7">
-    <img src="/projects/images/moodletips_comments/comment8.png" alt="Comment 8">
+    <img src="../images/moodletips_comments/comment1.png" alt="Comment 1">
+    <img src="../images/moodletips_comments/comment2.png" alt="Comment 2">
+    <img src="../images/moodletips_comments/comment3.png" alt="Comment 3">
+    <img src="../images/moodletips_comments/comment4.png" alt="Comment 4">
+    <img src="../images/moodletips_comments/comment5.png" alt="Comment 5">
+    <img src="../images/moodletips_comments/comment6.png" alt="Comment 6">
+    <img src="../images/moodletips_comments/comment7.png" alt="Comment 7">
+    <img src="../images/moodletips_comments/comment8.png" alt="Comment 8">
   </article>
 
   <!-- ========== FOOTER ========== -->
@@ -123,7 +118,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Kristian Ringer. All rights reserved.
+        &copy; <span id="copyright-year"></span> Kristian Ringer. All rights reserved.
+        <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
       </div>
     </div>
   </footer>

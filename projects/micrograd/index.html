@@ -45,17 +45,11 @@
       <h1 class="project-hero-title">Machine Learning</h1>
     </div>
   </div>
-  <div class="project-hero-author">
-    <img src="../../images/kristian-square.png" alt="Kristian Ringer">
-    <span>Kristian Ringer</span>
-  </div>
-
   <!-- ========== ARTICLE ========== -->
   <article class="project-article">
     <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
 
     <p>These are my notes taken during implementing the micrograd library and training a neural net to recognise images.</p>
-    <p>Check back soon for a link to a working demo and code :)</p>
 
     <h2>What is micrograd?</h2>
     <p>This is all based off <a href="https://en.wikipedia.org/wiki/Andrej_Karpathy" target="_blank" rel="noopener">Andrej Karpathy</a>'s Github repo and Youtube videos. I am a huge fan of him!</p>
@@ -79,7 +73,7 @@
 
     <h3>nn.py</h3>
     <p><code>neuron</code> : one link in the chain of weights, ends up getting a value and connected to other neurons. The weight between is the strength of that connection.<br>
-    <code>layer</code> layer of neurons. They are all connected to the input but not eachother, a set of neurons evaluated independently.<br>
+    <code>layer</code> layer of neurons. They are all connected to the input but not each other, a set of neurons evaluated independently.<br>
     <code>MLP</code> multi layer perceptron: sequence of layers of neurons.</p>
     <p>We are computing the derivative of the loss function with respect to the weights of the neural network.</p>
 
@@ -140,7 +134,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Kristian Ringer. All rights reserved.
+        &copy; <span id="copyright-year"></span> Kristian Ringer. All rights reserved.
+        <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
       </div>
     </div>
   </footer>

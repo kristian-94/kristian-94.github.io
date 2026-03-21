@@ -45,11 +45,6 @@
       <h1 class="project-hero-title">Creating the Logbook Project</h1>
     </div>
   </div>
-  <div class="project-hero-author">
-    <img src="../../images/kristian-square.png" alt="Kristian Ringer">
-    <span>Kristian Ringer</span>
-  </div>
-
   <!-- ========== ARTICLE ========== -->
   <article class="project-article">
     <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
@@ -75,7 +70,7 @@
     <h3>Demo</h3>
     <p><a href="https://kristian-94.github.io/logbook" target="_blank" rel="noopener">View a demo of the project</a></p>
     <a href="https://kristian-94.github.io/logbook" target="_blank" rel="noopener">
-      <img src="/projects/images/logbook_screenshot.png" alt="Logbook screenshot">
+      <img src="../images/logbook_screenshot.png" alt="Logbook screenshot">
     </a>
 
     <h3>Source Code</h3>
@@ -117,7 +112,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Kristian Ringer. All rights reserved.
+        &copy; <span id="copyright-year"></span> Kristian Ringer. All rights reserved.
+        <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
       </div>
     </div>
   </footer>
