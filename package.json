@@ -1,7 +1,7 @@
 {
   "name": "kristian-94.github.io",
   "version": "1.0.0",
-  "description": "Personal portfolio website built with Hugo and the Toha theme, showcasing projects, experience, and publications.",
+  "description": "Personal portfolio website",
   "main": "index.js",
   "scripts": {
     "test": "playwright test"
