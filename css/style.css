@@ -1396,6 +1396,10 @@ footer {
     font-size: 2.2rem;
   }
 
+  .navbar-brand .brand-surname {
+    display: none;
+  }
+
   .navbar-nav {
     gap: 8px;
   }

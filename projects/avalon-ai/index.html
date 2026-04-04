@@ -171,9 +171,9 @@
   <article class="project-article">
     <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
 
-    <p>Can AI lie convincingly? Can it read a room, pick up on deception, and figure out who to trust — with nothing but a chat window? This project is my attempt to find out.</p>
+    <p>Can AI lie convincingly? Can it read a room, pick up on deception, and figure out who to trust with nothing but a chat window? This project is my attempt to find out.</p>
 
-    <p>Avalon AI is a web app where you play <strong>The Resistance: Avalon</strong> alongside AI agents — a social deduction game built around hidden roles, bluffing, and voting out traitors. You get a secret role, sit down with four AI opponents, and the game plays out through a shared chat. I also used it to <strong>benchmark Claude Haiku, GPT-4o mini, and Qwen</strong> — 120 games, just models trying to outwit each other.</p>
+    <p>Avalon AI is a web app where you play The Resistance: Avalon alongside AI agents. You get a secret role, sit down with four AI opponents, and the game plays out through a shared chat. I also used it to benchmark Claude Haiku, GPT-4o mini, and Qwen across 120 games, just models trying to outwit each other.</p>
 
     <div class="stat-row">
       <div class="stat-box">
@@ -192,7 +192,7 @@
 
     <h2>The game</h2>
 
-    <p>Avalon is a hidden-role game. Most players are on the side of Good, but a few are secretly Evil — and they know who each other are. Good players must figure out who to trust; Evil players must blend in, misdirect, and sabotage missions without getting caught.</p>
+    <p>Avalon is a hidden-role game. Most players are Good, but a few are secretly Evil and they know who each other are. Good players have to figure out who to trust. Evil players have to blend in, misdirect, and sabotage missions without getting caught.</p>
 
     <div class="role-grid">
       <div class="role-card role-good">
@@ -213,19 +213,13 @@
       </div>
     </div>
 
-    <p>Gameplay goes in rounds: a leader proposes a mission team, everyone votes to approve or reject it, and the selected players secretly submit a success or fail card. Evil players can fail missions — but too many failures makes them obvious. Three mission wins and Good takes it, unless the Assassin can identify Merlin at the end.</p>
+    <p>Gameplay goes in rounds. A leader proposes a mission team, everyone votes to approve or reject it, and the selected players secretly submit a success or fail card. Evil players can choose to fail missions, but too many failures makes them obvious. Three mission wins and Good takes it, unless the Assassin can identify Merlin at the end.</p>
 
     <h2>The interesting design problem</h2>
 
-    <p>Avalon has rigid structure: missions, proposals, votes — each with strict rules about who can do what and when. But the game is won and lost in <em>conversation</em>. Reading people, constructing believable lies, arguing for your innocence when you're not innocent.</p>
+    <p>Avalon has rigid structure. Missions, proposals, votes, each with strict rules about who can do what and when. But the game is won and lost in <em>conversation</em>. Reading people. Constructing believable lies. Arguing for your innocence when you're not innocent.</p>
 
-    <p>Bridging those two things is the core challenge. The system needs agents that can:</p>
-
-    <ol>
-      <li><strong>Reason privately</strong> — form beliefs about who's good and evil, decide what to reveal and what to hide, before saying anything</li>
-      <li><strong>Act in structured ways</strong> — make precise game decisions (propose a team, cast a vote, play a card) at exactly the right moment</li>
-      <li><strong>Speak naturally</strong> — hold contextual conversation between those decisions, without the reasoning leaking into what they say</li>
-    </ol>
+    <p>Bridging those two things is the core challenge. The agents need to reason privately (form beliefs, decide what to reveal and what to hide) before saying anything. They need to make precise game decisions at exactly the right moment. And they need to hold natural conversation between those decisions, without their internal reasoning leaking into the chat.</p>
 
     <p>The ordering matters. If a model commits to an answer first, any reasoning that follows is just rationalisation.</p>
 
@@ -240,17 +234,17 @@
       </div>
     </div>
 
-    <p>Each agent has private state — role knowledge, suspicions, internal reasoning — that never leaks into the shared chat.</p>
+    <p>Each agent has private state (role knowledge, suspicions, internal reasoning) that never leaks into the shared chat.</p>
 
     <h2>What's built</h2>
 
-    <p>The game rules engine is complete — full Avalon rules for 5 players, with test coverage for mission sizes, vote mechanics, win conditions, and role knowledge assignment. The UI is running: a Nuxt 3 + Vue 3 interface with a live game state panel and group chat, supporting both a Watch Mode (all AI) and a Play Mode where a human joins as a Loyal Servant.</p>
+    <p>The game rules engine is complete: full Avalon rules for 5 players, with test coverage for mission sizes, vote mechanics, win conditions, and role knowledge assignment. The UI is a Nuxt 3 + Vue 3 interface with a live game state panel and group chat. It supports both a Watch Mode (all AI) and a Play Mode where you join as a Loyal Servant.</p>
 
-    <p>The database schema is designed to record full game history — every event, move, vote, and message — so games can be replayed and analysed. The structured function call / natural language agent layer is currently in progress.</p>
+    <p>The database schema records full game history so games can be replayed and analysed. The structured function call / natural language agent layer is currently in progress.</p>
 
     <h2>Benchmarking AI models</h2>
 
-    <p>Avalon is a useful benchmark because it tests reasoning, theory of mind, and social inference — things that don't show up in standard evals. I ran <strong>120 games</strong> with three models each playing roughly a third of agent slots: <strong>Claude Haiku</strong>, <strong>GPT-4o mini</strong>, and <strong>Qwen</strong>. Win rate is measured as the fraction of games won when that model was on the Good team.</p>
+    <p>Avalon is a useful benchmark because it tests reasoning, theory of mind, and social inference. None of that shows up in standard evals. I ran 120 games with three models each playing roughly a third of agent slots: Claude Haiku, GPT-4o mini, and Qwen. Win rate is the fraction of games won when that model was on the Good team.</p>
 
     <table class="benchmark-table">
       <thead>
@@ -295,7 +289,7 @@
       </tbody>
     </table>
 
-    <p>Haiku came out ahead, but the margins were tighter than expected. All three were competitive — Qwen in particular held its own. What was more interesting than the numbers was <em>how</em> they played: Haiku tended to be deliberate and cautious; GPT-4o mini was more aggressive with accusations; Qwen had a habit of over-explaining, which occasionally made it look suspicious even when playing Good.</p>
+    <p>Haiku came out ahead, but the margins were tighter than I expected. All three were competitive. Qwen in particular held its own. The more interesting thing was <em>how</em> they played. Haiku tended to be deliberate and cautious. GPT-4o mini was more aggressive with accusations. Qwen had a habit of over-explaining, which occasionally made it look suspicious even when it was actually on the Good team.</p>
 
     <h2>What it looks like</h2>
 
@@ -306,7 +300,7 @@
 
     <h2>Play it yourself</h2>
 
-    <p>Join as a Loyal Servant alongside four AI opponents. You'll need to figure out who's lying — they'll be trying to figure out the same about you.</p>
+    <p>Join as a Loyal Servant alongside four AI opponents. You'll need to figure out who's lying. They'll be trying to figure out the same about you.</p>
 
     <p>
       <a href="https://avalon.ringertech.org" target="_blank" rel="noopener" class="project-link" style="display:inline-block;margin-right:0.75rem;">Play live &rarr;</a>
