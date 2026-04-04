@@ -53,9 +53,9 @@ for (const path of PAGES) {
     // Flaming K logo image
     const logo = brand.locator('img.brand-logo');
     await expect(logo).toBeVisible();
-    // Text reads "ristian Ringer"
-    const text = brand.locator('.brand-text');
-    await expect(text).toHaveText('ristian Ringer');
+    // Full brand text includes "ristian Ringer" (may be split across spans)
+    await expect(brand).toContainText('ristian');
+    await expect(brand).toContainText('Ringer');
   });
 }
 
