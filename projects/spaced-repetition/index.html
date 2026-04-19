@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spaced Repetition - Kristian Ringer</title>
+  <link rel="icon" type="image/png" href="../../images/site/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .project-article img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+    .project-article figure {
+      margin: 1.5rem 0;
+    }
+    .project-article figcaption {
+      font-size: 0.85rem;
+      color: var(--text-muted, #6b7280);
+      margin-top: 0.4rem;
+    }
+    /* Theme-aware screenshot swap */
+    .shot-dark  { display: none; }
+    html.dark .shot-light { display: none; }
+    html.dark .shot-dark  { display: block; }
+    pre {
+      background: var(--bg-alt, #f9fafb);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    html.dark pre { background: var(--bg-alt); }
+    code { font-family: 'SFMono-Regular', Menlo, monospace; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <a href="../../index.html" class="navbar-brand">
+      <i class="brand-star">✦</i><img src="../../images/site/favicon.png" alt="K" class="brand-logo"><span class="brand-text">ristian Ringer</span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="../../index.html#home">Home</a></li>
+      <li><a href="../../index.html#about">About</a></li>
+      <li><a href="../../index.html#projects">Projects</a></li>
+      <li><a href="../../index.html#skills">Skills</a></li>
+      <li class="theme-switcher" id="theme-switcher">
+        <button class="theme-icon-btn" aria-label="Theme">☀</button>
+        <div class="theme-dropdown">
+          <button class="theme-opt" data-theme="system">⬡ System</button>
+          <button class="theme-opt" data-theme="light">☀ Light</button>
+          <button class="theme-opt" data-theme="dark">◐ Dark</button>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <div class="project-hero">
+    <div class="project-hero-bg">
+      <img src="screenshot-review.png" alt="">
+    </div>
+    <div class="project-hero-overlay">
+      <h1 class="project-hero-title">Spaced Repetition</h1>
+    </div>
+  </div>
+
+  <!-- ========== ARTICLE ========== -->
+  <article class="project-article">
+    <a href="../../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+
+    <p>I've been trying to learn Vietnamese. Spaced repetition is the right tool for vocab: you rate each card on how well you knew it, and the scheduler decides when to show it next.</p>
+
+    <p>I tried the usual apps first. Anki works but the interface is rough and adding cards in bulk is fiddly. Most of the polished ones paywall basic features, lock your data in their cloud, or charge for push notifications. I just wanted a flashcard app that I owned, ran locally, and could pipe new words into from other tools. So I built one.</p>
+
+    <figure>
+      <img src="screenshot-decks.png" alt="Decks screen with a list of study decks and card counts" class="shot-light">
+      <img src="screenshot-decks-dark.png" alt="Decks screen with a list of study decks and card counts" class="shot-dark">
+      <figcaption>Decks are just topic buckets. Activate the ones you want to study today.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="screenshot-review.png" alt="Review screen showing a card with Again, Hard, Good, Easy rating buttons" class="shot-light">
+      <img src="screenshot-review-dark.png" alt="Review screen showing a card with Again, Hard, Good, Easy rating buttons" class="shot-dark">
+      <figcaption>Review interface. 1/2/3/4 to rate, space to flip.</figcaption>
+    </figure>
+
+    <h2>Scheduling</h2>
+
+    <p>The scheduler is <a href="https://github.com/open-spaced-repetition/fsrs4anki" target="_blank" rel="noopener">FSRS</a> (Free Spaced Repetition Scheduler), via the <code>scottlaurent/fsrs</code> Composer package. It models each card with difficulty, stability, and retrievability, and fits those to your actual answers. Cards you find hard come back sooner, cards you know well get pushed out further. It's a meaningful step up from SM-2, the 80s-era formula Anki shipped with for years.</p>
+
+    <h2>Pushing cards in from elsewhere</h2>
+
+    <p>The feature I use most is the REST API. I point Claude Code at a topic, it researches, generates the cards, and pushes them straight into the relevant deck. No manual entry, no card editor. I just show up and review.</p>
+
+    <pre><code>POST /api/decks/{id}/cards
+Authorization: Bearer &lt;sanctum-token&gt;
+
+{"cards": [
+  {"front_content": "xin chào", "back_content": "hello"},
+  {"front_content": "cảm ơn",   "back_content": "thank you"}
+]}</code></pre>
+
+    <h2>Notifications without an Apple Developer account</h2>
+
+    <p>iOS push needs a $99/year Apple Developer account for a personal side project, which I wasn't going to pay. Instead, a cron job checks for due cards and pings me via a Telegram bot. It's a notification on my phone with a deep link, which is all I wanted.</p>
+
+    <h2>Stack</h2>
+
+    <p>Laravel 11 with SQLite, Inertia.js + Vue 3 + Tailwind on the frontend, Laravel Breeze for auth, Sanctum for API tokens. Runs in a Docker container on my homelab. 95 tests, 267 assertions.</p>
+
+    <p>
+      <a href="https://spaced-repetition.ringertech.org" target="_blank" rel="noopener" class="project-link" style="display:inline-block;margin-right:0.75rem;">Visit site &rarr;</a>
+      <a href="https://github.com/kristian-94/spaced-repetition" target="_blank" rel="noopener" class="project-link" style="display:inline-block;">GitHub &rarr;</a>
+    </p>
+
+  </article>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../../index.html#home">Home</a></li>
+            <li><a href="../../index.html#about">About</a></li>
+            <li><a href="../../index.html#projects">Projects</a></li>
+            <li><a href="../../index.html#skills">Skills</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Me</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kristian.ringer@gmail.com">kristian.ringer@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://www.github.com/kristian-94" target="_blank" rel="noopener">github.com/kristian-94</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/kristian-ringer-9ab515104/" target="_blank" rel="noopener">kristian-ringer-9ab515104</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="copyright-year"></span> Kristian Ringer. All rights reserved.
+        <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const switcher = document.getElementById('theme-switcher');
+      const iconBtn = switcher ? switcher.querySelector('.theme-icon-btn') : null;
+      const opts = document.querySelectorAll('.theme-opt');
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme(mode) {
+        const isDark = mode === 'dark' || (mode === 'system' && mq.matches);
+        html.classList.toggle('dark', isDark);
+        opts.forEach(o => o.classList.toggle('active', o.dataset.theme === mode));
+      }
+      const saved = localStorage.getItem('theme') || 'system';
+      applyTheme(saved);
+      mq.addEventListener('change', function() {
+        if ((localStorage.getItem('theme') || 'system') === 'system') applyTheme('system');
+      });
+      if (iconBtn) {
+        iconBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          switcher.classList.toggle('open');
+        });
+      }
+      document.addEventListener('click', function() {
+        if (switcher) switcher.classList.remove('open');
+      });
+      opts.forEach(function(opt) {
+        opt.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const mode = opt.dataset.theme;
+          if (mode === 'system') { localStorage.removeItem('theme'); } else { localStorage.setItem('theme', mode); }
+          applyTheme(mode);
+          switcher.classList.remove('open');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
